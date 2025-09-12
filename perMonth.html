@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAX BACI | Monthly Trades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+        .text-purple-gradient {
+            background-image: linear-gradient(90deg, #D444F8 0%, #6A3896 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle radial gradient from the bottom-left */
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(128, 90, 213, 0.45) 0%, transparent 90%);
+            transform: translate(-50%, 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #6A3896;
+            border-radius: 4px;
+        }
+
+        /* Social buttons from landing page */
+        .social-btn {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: #1a1a1a;
+            border: 1px solid #6A3896;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .x-hover:hover {
+            background-color: #1a1a1a;
+        }
+
+        .instagram-hover:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-color: #f09433;
+        }
+
+        .telegram-hover:hover {
+            background-color: #26a5e4;
+            border-color: #26a5e4;
+        }
+
+        /* Card styles based on your CSS */
+        .trade-card {
+            box-sizing: border-box;
+            background: #000000;
+            border: 1px solid #6A3896;
+            border-radius: 5px;
+            padding: 24px;
+        }
+
+        .trade-pair {
+            font-size: 40px;
+            line-height: 50px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .trade-status {
+            font-size: 24px;
+            line-height: 30px;
+            font-weight: 700;
+        }
+
+        .trade-info-label {
+            color: #D9D9D9;
+        }
+        
+    </style>
+</head>
+<body class="bg-black text-white gradient-bg overflow-y-auto">
+
+    <!-- Top Bar with Socials -->
+    <header class="relative z-20 flex justify-between items-center p-6 lg:p-10">
+        <h1 class="text-4xl lg:text-5xl font-bold text-white">DAX BACI</h1>
+        <div class="flex space-x-3">
+            <a href="#" class="social-btn flex items-center space-x-2 rounded-full px-4 py-2 text-white text-sm font-medium x-hover">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="#" class="social-btn flex items-center space-x-2 rounded-full px-4 py-2 text-white text-sm font-medium instagram-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 6.5h.01" />
+                </svg>
+            </a>
+            <a href="#" class="social-btn flex items-center space-x-2 rounded-full px-4 py-2 text-white text-sm font-medium telegram-hover">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 lg:p-8">
+        <!-- Back Button -->
+        <a href="index.html" class="flex items-center text-gray-400 hover:text-white transition-colors mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span class="text-sm font-bold">SEE ALL MONTHS</span>
+        </a>
+
+        <!-- Monthly Header -->
+        <h2 id="month-title" class="text-6xl lg:text-8xl font-bold text-white text-center mb-8"></h2>
+        
+        <!-- Monthly Summary -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center text-sm font-bold mb-12">
+            <div>
+                <span class="text-gray-400 block">PROFIT</span>
+                <span id="profit-summary" class="text-2xl font-bold mt-1 text-purple-gradient"></span>
+            </div>
+            <div class="border-l border-gray-700 pl-4">
+                <span class="text-gray-400 block">TRADES</span>
+                <span id="trades-summary" class="text-2xl font-bold mt-1"></span>
+            </div>
+            <div class="border-l border-gray-700 pl-4">
+                <span class="text-gray-400 block">WINRATE</span>
+                <span id="winrate-summary" class="text-2xl font-bold mt-1"></span>
+            </div>
+            <div class="border-l border-gray-700 pl-4">
+                <span class="text-gray-400 block">WINS</span>
+                <span id="wins-summary" class="text-2xl font-bold mt-1"></span>
+            </div>
+        </div>
+
+        <!-- Trades Grid -->
+        <div id="trades-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Trade cards will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- Import trades data -->
+    <script src="data/trades.js"></script>
+
+    <!-- JavaScript for dynamic content -->
+    <script>
+        const tradesContainer = document.getElementById('trades-container');
+        const monthTitle = document.getElementById('month-title');
+        const profitSummary = document.getElementById('profit-summary');
+        const tradesSummary = document.getElementById('trades-summary');
+        const winrateSummary = document.getElementById('winrate-summary');
+        const winsSummary = document.getElementById('wins-summary');
+
+        // Function to create a trade card
+        const createTradeCard = (trade, month, tradeIndex) => {
+            const cardLink = document.createElement('a');
+            // Link to perTrade.html with month and trade index parameters
+            cardLink.href = `perTrade.html?month=${month}&trade=${tradeIndex}`;
+            cardLink.classList = 'block trade-card hover:bg-gray-900 transition-colors cursor-pointer';
+
+            // Determine status color
+            let statusColor = '';
+            if (trade.status === 'WIN') {
+                statusColor = 'text-[#84f181]'; // WIN color
+            } else if (trade.status === 'LOSS') {
+                statusColor = 'text-[#f18181]'; // LOSS color
+            } else if (trade.status === 'ACTIVE') {
+                statusColor = 'text-[#f1c440]'; // ACTIVE color (yellow)
+            } else {
+                statusColor = 'text-[#D9D9D9]'; // Other statuses (CANCELLED, UNTRIGGERED)
+            }
+
+            // Determine profit color and text
+            let profitColor = 'text-[#D9D9D9]';
+            let profitText = '--';
+            
+            if (trade.profit && trade.profit !== '--') {
+                profitText = trade.profit;
+                profitColor = trade.profit.startsWith('-') ? 'text-[#f18181]' : 'text-[#84f181]';
+            }
+
+            const recordsCount = trade.telegramLinks ? trade.telegramLinks.length : 0;
+
+            cardLink.innerHTML = `
+                <div class="flex items-center justify-between mb-4">
+                    <span class="trade-pair">${trade.pair}</span>
+                    <span class="trade-status ${statusColor}">${trade.status.toUpperCase()}</span>
+                </div>
+                <div class="flex items-center justify-between text-sm font-bold">
+                    <div class="text-gray-400">PROFIT: <span class="${profitColor}">${profitText}</span></div>
+                    <div class="text-gray-400">RECORDS: <span class="text-white">${recordsCount}</span></div>
+                </div>
+            `;
+            return cardLink;
+        };
+
+        // Function to calculate statistics
+        const calculateStats = (trades) => {
+            // Filter out non-completed trades
+            const completedTrades = trades.filter(trade => 
+                trade.status !== 'ACTIVE' && 
+                trade.status !== 'CANCELLED' && 
+                trade.status !== 'UNTRIGGERED'
+            );
+
+            const totalTrades = completedTrades.length;
+            const wins = completedTrades.filter(t => t.status === 'WIN').length;
+            const winrate = totalTrades > 0 ? (wins / totalTrades * 100).toFixed(0) : 0;
+            
+            const totalProfit = completedTrades.reduce((sum, t) => {
+                if (t.profit === '--' || !t.profit) return sum;
+                const profitValue = parseFloat(t.profit.replace('R', ''));
+                return sum + profitValue;
+            }, 0);
+
+            return {
+                totalTrades,
+                wins,
+                winrate,
+                totalProfit: totalProfit.toFixed(2)            };
+        };
+
+        // Function to render the page based on the month
+        const renderPage = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const month = urlParams.get('month');
+
+            if (!month || !monthlyTrades[month]) {
+                // Handle case where month is not found or URL is invalid
+                monthTitle.textContent = 'Month Not Found';
+                tradesContainer.innerHTML = '<div class="text-center text-gray-400 col-span-2">No trades found for this month.</div>';
+                return;
+            }
+
+            const trades = monthlyTrades[month];
+
+            // Render month title
+            monthTitle.textContent = month.toUpperCase();
+
+            // Calculate and display statistics
+            const stats = calculateStats(trades);
+
+            profitSummary.textContent = `${stats.totalProfit}R`;
+            tradesSummary.textContent = stats.totalTrades;
+            winrateSummary.textContent = `${stats.winrate}%`;
+            winsSummary.textContent = stats.wins;
+
+            // Set profit color based on positive/negative
+            const profitValue = parseFloat(stats.totalProfit);
+            if (profitValue > 0) {
+                profitSummary.className = 'text-2xl font-bold mt-1 text-green-400';
+            } else if (profitValue < 0) {
+                profitSummary.className = 'text-2xl font-bold mt-1 text-red-400';
+            } else {
+                profitSummary.className = 'text-2xl font-bold mt-1 text-gray-400';
+            }
+
+            // Render trade cards
+            tradesContainer.innerHTML = ''; // Clear previous content
+            trades.forEach((trade, index) => {
+                tradesContainer.appendChild(createTradeCard(trade, month, index));
+            });
+        };
+
+        // Render the page on load
+        document.addEventListener('DOMContentLoaded', renderPage);
+    </script>
+</body>
+</html>

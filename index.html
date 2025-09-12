@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAX BACI - PUBLIC TRADES</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .gradient-bg {
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Reverting to a subtle radial gradient from the bottom-left */
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(128, 90, 213, 0.45) 0%, transparent 90%);
+            transform: translate(-50%, 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Subtle hover effect */
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(128, 90, 213, 0.15);
+        }
+
+        .social-btn {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .x-hover:hover {
+            background-color: #1a1a1a;
+        }
+
+        .instagram-hover:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .telegram-hover:hover {
+            background-color: #26a5e4;
+        }
+
+        .social-icon {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+<body class="gradient-bg overflow-y-auto"> <!--<body class="gradient-bg ">-->
+    <!-- Top Navigation -->
+    <div class="relative z-20 flex justify-between items-center p-6 md:p-8">
+        <!-- Left - DAX BACI -->
+        <div class="text-white text-2xl md:text-3xl font-bold tracking-wide">
+            DAX BACI🧑‍🍳
+        </div>
+
+        <!-- Right - Social Media Links -->
+        <div class="flex space-x-3 color-white">
+            <a href="#" class="social-btn flex items-center space-x-2 bg-black/30 backdrop-blur-md rounded-full px-4 py-2 text-white text-sm font-medium x-hover">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                <span>X (Twitter)</span>
+            </a>
+            <a href="#" class="social-btn flex items-center space-x-2 bg-black/30 backdrop-blur-md rounded-full px-4 py-2 text-white text-sm font-medium instagram-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 6.5h.01" />
+                </svg>
+                <span>Instagram</span>
+            </a>
+            <a href="#" class="social-btn flex items-center space-x-2 bg-black/30 backdrop-blur-md rounded-full px-4 py-2 text-white text-sm font-medium telegram-hover">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                <span>Telegram</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col items-center justify-center px-4 pb-8">
+        <!-- Title -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl text-white mb-2 tracking-tight">PUBLIC TRADES</h1>
+        </div>
+
+        <!-- Single Grid for all Month Cards -->
+        <div id="month-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl mx-auto">
+            <!-- Month cards will be dynamically generated here -->
+        </div>
+    </div>
+
+    <!-- Import trades data -->
+    <script src="data/trades.js"></script>
+    
+    <script>
+// Function to calculate total profit for a month
+function calculateTotalProfit(trades) {
+    const totalProfit = trades.reduce((total, trade) => {
+        if (trade.profit === '--' || trade.profit === undefined) return total;
+        const profitValue = parseFloat(trade.profit.replace('R', ''));
+        return total + profitValue;
+    }, 0);
+    return totalProfit.toFixed(2);
+}
+
+        // Function to count completed trades (exclude ACTIVE, CANCELLED, UNTRIGGERED)
+        function countCompletedTrades(trades) {
+            return trades.filter(trade => 
+                trade.status !== 'ACTIVE' && 
+                trade.status !== 'CANCELLED' && 
+                trade.status !== 'UNTRIGGERED'
+            ).length;
+        }
+
+        // Function to create a month card
+        function createMonthCard(monthName, monthData) {
+            const totalProfit = calculateTotalProfit(monthData);
+            const completedTrades = countCompletedTrades(monthData);
+            
+            const card = document.createElement('a');
+            card.href = `perMonth.html?month=${monthName}`;
+            card.className = 'relative w-full aspect-[16/9] card-hover cursor-pointer block';
+            
+            card.innerHTML = `
+                <img src="images/${monthName}.png" alt="${monthName.charAt(0).toUpperCase() + monthName.slice(1)} trade" class="w-full h-full object-cover rounded-lg">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute top-4 left-4 text-white text-xl md:text-2xl font-semibold">${monthName.toUpperCase()}</div>
+                <div class="absolute bottom-4 left-4 rounded-xl bg-black/50 backdrop-blur-md text-white text-sm font-semibold py-2 px-4 flex items-center space-x-3">
+                    <span class="${totalProfit >= 0 ? 'text-green-400' : 'text-red-400'}">${totalProfit}R</span>
+                    <div class="w-[1px] h-4 bg-white/40"></div>
+                    <span>${completedTrades} TRADES</span>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Generate month cards dynamically
+        function generateMonthCards() {
+            const container = document.getElementById('month-cards-container');
+            
+            // Clear existing content
+            container.innerHTML = '';
+            
+            // Get all available months from monthlyTrades and sort them by most recent first
+            const months = Object.keys(monthlyTrades);
+            const monthOrder = ['september', 'august', 'july', 'june', 'may', 'april', 'march'];
+            
+            // Sort months according to our desired order
+            const sortedMonths = months.sort((a, b) => {
+                const aIndex = monthOrder.indexOf(a);
+                const bIndex = monthOrder.indexOf(b);
+                return aIndex - bIndex;
+            });
+            
+            // Create cards for each month
+            sortedMonths.forEach(month => {
+                const monthData = monthlyTrades[month];
+                if (monthData && monthData.length > 0) {
+                    const card = createMonthCard(month, monthData);
+                    container.appendChild(card);
+                }
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            generateMonthCards();
+        });
+    </script>
+</body>
+</html>
