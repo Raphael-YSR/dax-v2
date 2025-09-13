@@ -54,33 +54,66 @@
             border-radius: 4px;
         }
 
-        /* Social buttons from landing page */
-        .social-btn {
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            background: #1a1a1a;
-            border: 1px solid #6A3896;
+        /* Styles for the new social bar */
+        .social-bar-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
         }
 
-        .social-btn:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.2);
+        .separator {
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 70%;
         }
 
+        .social-buttons{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
         .x-hover:hover {
-            background-color: #1a1a1a;
+            background-color: #3a3737;
         }
 
         .instagram-hover:hover {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            border-color: #f09433;
+            background-color: #3a3737;
         }
 
         .telegram-hover:hover {
-            background-color: #26a5e4;
-            border-color: #26a5e4;
+            background-color: #3a3737;
+            opacity: 0.9;
+        }
+        
+        /* Specific styling for the animated 'Get Deals' button */
+        .get-deals-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.7s ease-in-out;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
+        .get-deals-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(128, 90, 213, 0.3), transparent);
+            transition: left 0.7s ease-in-out;
+            transform: skewX(-20deg);
+        }
+
+        .get-deals-btn:hover {
+            background-color: #473274; /* A vibrant purple */
+        }
+        
+        .get-deals-btn:hover::before {
+            left: 100%;
+        }
         /* Card styles based on your CSS */
         .trade-card {
             box-sizing: border-box;
@@ -111,32 +144,11 @@
 </head>
 <body class="bg-black text-white gradient-bg overflow-y-auto">
 
-    <!-- Top Bar with Socials -->
     <header class="relative z-20 flex justify-between items-center p-6 lg:p-10">
         <h1 class="text-4xl lg:text-5xl font-bold text-white">DAX BACI</h1>
-        <div class="flex space-x-3">
-            <a href="#" class="social-btn flex items-center space-x-2 rounded-full px-4 py-2 text-white text-sm font-medium x-hover">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-            </a>
-            <a href="#" class="social-btn flex items-center space-x-2 rounded-full px-4 py-2 text-white text-sm font-medium instagram-hover">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 6.5h.01" />
-                </svg>
-            </a>
-            <a href="#" class="social-btn flex items-center space-x-2 rounded-full px-4 py-2 text-white text-sm font-medium telegram-hover">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                </svg>
-            </a>
-        </div>
-    </header>
+        </header>
 
     <main class="container mx-auto p-4 lg:p-8">
-        <!-- Back Button -->
         <a href="index.html" class="flex items-center text-gray-400 hover:text-white transition-colors mb-8">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -144,10 +156,8 @@
             <span class="text-sm font-bold">SEE ALL MONTHS</span>
         </a>
 
-        <!-- Monthly Header -->
         <h2 id="month-title" class="text-6xl lg:text-8xl font-bold text-white text-center mb-8"></h2>
         
-        <!-- Monthly Summary -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center text-sm font-bold mb-12">
             <div>
                 <span class="text-gray-400 block">PROFIT</span>
@@ -167,16 +177,46 @@
             </div>
         </div>
 
-        <!-- Trades Grid -->
         <div id="trades-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Trade cards will be dynamically inserted here -->
-        </div>
+            </div>
     </main>
 
-    <!-- Import trades data -->
+    <div class="social-bar-container">
+        <div class="w-[930px] h-[70px] bg-[#4B4B4B] rounded-xl shadow-xl flex items-center p-2">
+            <a href="https://www.x.com/thissdax" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-base font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 x-hover">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                <span>X (Twitter)</span>
+            </a>
+            <div class="separator"></div>
+            <a href="https://www.instagram.com/thissdax/?hl=en" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-base font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 instagram-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 6.5h.01" />
+                </svg>
+                <span>Instagram</span>
+            </a>
+            <div class="separator"></div>
+            <a href="https://t.me/thedaxbrand" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-base font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 telegram-hover">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                <span>Telegram</span>
+            </a>
+            <div class="separator"></div>
+            <a href="deals.html" class="flex-grow-[1.5] flex items-center justify-center space-x-2 text-white text-base font-medium get-deals-btn py-4 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-yellow-400">
+                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
+                </svg>
+                <span>GET DEALS NOW</span>
+            </a>
+        </div>
+    </div>
+
     <script src="data/trades.js"></script>
 
-    <!-- JavaScript for dynamic content -->
     <script>
         const tradesContainer = document.getElementById('trades-container');
         const monthTitle = document.getElementById('month-title');

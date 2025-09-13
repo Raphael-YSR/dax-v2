@@ -10,3 +10,6 @@
 [X] - deals page
 [] - Copyright info
 [] - New links section
+
+
+[] - Mobile view
