@@ -1,15 +1,16 @@
 [] - Dynamic Scroll
-[] - PerMonth
-    [] - Aligh month to the left
-    [] - Rearrange trade data effect
-    [] - 
-
-[] - perTrade.html
-[] - revise trades.js
-
-[X] - deals page
+[] - calculate winrate logic
+[] - revise trades.js round 2
 [] - Copyright info
-[] - New links section
+[] - Mobile view | transition after 1020px width
+[] - blur section on/above floads
 
 
-[] - Mobile view
+---
+[X] - deals page
+[x] - New links section
+[x] - perTrade.html
+[X] - revise trades.js    
+[x] - Aligh month to the left
+[x] - Rearrange trade data effect
+[x] - PerMonth

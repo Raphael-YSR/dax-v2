@@ -1,343 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAX BACI | Monthly Trades</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #000000;
-            color: #FFFFFF;
-        }
-        .text-purple-gradient {
-            background-image: linear-gradient(90deg, #D444F8 0%, #6A3896 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAX BACI | Monthly Trades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    .text-purple-gradient {
+      background-image: linear-gradient(90deg, #D444F8 0%, #6A3896 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .gradient-bg {
-            background-color: #000;
-            position: relative;
-            overflow: hidden;
-        }
+    /* Background gradient */
+    .gradient-bg {
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+    }
+    .gradient-bg::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(128, 90, 213, 0.45) 0%, transparent 90%);
+      transform: translate(-50%, 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        /* Subtle radial gradient from the bottom-left */
-        .gradient-bg::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(128, 90, 213, 0.45) 0%, transparent 90%);
-            transform: translate(-50%, 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1a1a1a; }
+    ::-webkit-scrollbar-thumb {
+      background-color: #6A3896;
+      border-radius: 4px;
+    }
 
-        /* Custom scrollbar styles */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+    /* Nav menu */
+    .nav-menu {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.8em;
+      color: #e6e6e699;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      backdrop-filter: blur(40px);
+      background-color: #47474780;
+      border-radius: .76em;
+      padding: .35em;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .nav-link {
+      color: #e6e6e6;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 0.5em;
+    }
+    .nav-link img {
+      width: 20px;
+      height: 20px;
+    }
 
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
+    /* Get Deals button */
+    .get-deals-btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.7s ease-in-out;
+    }
+    .get-deals-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(128, 90, 213, 0.3), transparent);
+      transition: left 0.7s ease-in-out;
+      transform: skewX(-20deg);
+    }
+    .get-deals-btn:hover {
+      background-color: #473274;
+    }
+    .get-deals-btn:hover::before {
+      left: 100%;
+    }
 
-        ::-webkit-scrollbar-thumb {
-            background-color: #6A3896;
-            border-radius: 4px;
-        }
+    /* Hamburger */
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 18px;
+      height: 14px;
+      cursor: pointer;
+    }
+    .hamburger-menu span {
+      display: block;
+      height: 2px;
+      background-color: white;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger-menu.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+    .hamburger-menu.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
-        /* Styles for the new social bar */
-        .social-bar-container {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 50;
-        }
+    /* Mobile nav */
+    #mobile-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 66.66%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 40;
+      padding-right: 1.5rem;
+    }
+    #mobile-nav.active { transform: translateX(0); }
+    #mobile-nav .nav-link {
+      padding: 1.25rem 0;
+      font-size: 1rem;
+      width: 100%;
+      justify-content: flex-end;
+    }
+    #mobile-nav .nav-link img {
+      width: 1rem;
+      height: 1rem;
+    }
 
-        .separator {
-            width: 1px;
-            background-color: rgba(255, 255, 255, 0.2);
-            height: 70%;
-        }
+    /* Trade cards */
+    .trade-card {
+      background: #000;
+      border: 1px solid #6A3896;
+      border-radius: 5px;
+      padding: 24px;
+    }
+    .trade-pair {
+      font-size: 40px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .trade-status {
+      font-size: 24px;
+      font-weight: 700;
+    }
 
-        .social-buttons{
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-        .x-hover:hover {
-            background-color: #3a3737;
-        }
-
-        .instagram-hover:hover {
-            background-color: #3a3737;
-        }
-
-        .telegram-hover:hover {
-            background-color: #3a3737;
-            opacity: 0.9;
-        }
-        
-        /* Specific styling for the animated 'Get Deals' button */
-        .get-deals-btn {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.7s ease-in-out;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        .get-deals-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(128, 90, 213, 0.3), transparent);
-            transition: left 0.7s ease-in-out;
-            transform: skewX(-20deg);
-        }
-
-        .get-deals-btn:hover {
-            background-color: #473274; /* A vibrant purple */
-        }
-        
-        .get-deals-btn:hover::before {
-            left: 100%;
-        }
-        /* Card styles based on your CSS */
-        .trade-card {
-            box-sizing: border-box;
-            background: #000000;
-            border: 1px solid #6A3896;
-            border-radius: 5px;
-            padding: 24px;
-        }
-
-        .trade-pair {
-            font-size: 40px;
-            line-height: 50px;
-            font-weight: 700;
-            color: #FFFFFF;
-        }
-
-        .trade-status {
-            font-size: 24px;
-            line-height: 30px;
-            font-weight: 700;
-        }
-
-        .trade-info-label {
-            color: #D9D9D9;
-        }
-        
-    </style>
+    /* Responsive rules */
+    @media (max-width: 1000px) {
+      .nav-menu { display: none; }
+      .hamburger-menu { display: flex; }
+      #trades-container { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body class="bg-black text-white gradient-bg overflow-y-auto">
 
-    <header class="relative z-20 flex justify-between items-center p-6 lg:p-10">
-        <h1 class="text-4xl lg:text-5xl font-bold text-white">DAX BACI</h1>
-        </header>
+  <!-- HEADER -->
+  <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 pt-6">
+    <a href="/" class="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-wide">
+      DAX BACI🧑‍🍳
+    </a>
 
-    <main class="container mx-auto p-4 lg:p-8">
-        <a href="index.html" class="flex items-center text-gray-400 hover:text-white transition-colors mb-8">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-            <span class="text-sm font-bold">SEE ALL MONTHS</span>
-        </a>
+    <nav role="navigation" class="nav-menu text-sm">
+      <a href="https://www.x.com/thissdax" class="nav-link">
+        <img src="images/icons/x.png" alt="X"> X (Twitter)
+      </a>
+      <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link">
+        <img src="images/icons/instagram.png" alt="Instagram"> Instagram
+      </a>
+      <a href="https://t.me/thedaxbrand" class="nav-link">
+        <img src="images/icons/telegram.png" alt="Telegram"> Telegram
+      </a>
+      <a href="deals.html" class="nav-link get-deals-btn">
+        <img src="images/icons/flash.png" alt="Deals">
+        <span>GET DEALS NOW</span>
+      </a>
+    </nav>
 
-        <h2 id="month-title" class="text-6xl lg:text-8xl font-bold text-white text-center mb-8"></h2>
-        
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center text-sm font-bold mb-12">
-            <div>
-                <span class="text-gray-400 block">PROFIT</span>
-                <span id="profit-summary" class="text-2xl font-bold mt-1 text-purple-gradient"></span>
-            </div>
-            <div class="border-l border-gray-700 pl-4">
-                <span class="text-gray-400 block">TRADES</span>
-                <span id="trades-summary" class="text-2xl font-bold mt-1"></span>
-            </div>
-            <div class="border-l border-gray-700 pl-4">
-                <span class="text-gray-400 block">WINRATE</span>
-                <span id="winrate-summary" class="text-2xl font-bold mt-1"></span>
-            </div>
-            <div class="border-l border-gray-700 pl-4">
-                <span class="text-gray-400 block">WINS</span>
-                <span id="wins-summary" class="text-2xl font-bold mt-1"></span>
-            </div>
-        </div>
+    <button id="hamburger-menu" class="hamburger-menu lg:hidden">
+      <span></span><span></span><span></span>
+    </button>
 
-        <div id="trades-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            </div>
-    </main>
+    <nav id="mobile-nav" class="lg:hidden">
+      <a href="https://www.x.com/thissdax" class="nav-link">
+        <img src="images/icons/x.png" alt="X"> X (Twitter)
+      </a>
+      <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link">
+        <img src="images/icons/instagram.png" alt="Instagram"> Instagram
+      </a>
+      <a href="https://t.me/thedaxbrand" class="nav-link">
+        <img src="images/icons/telegram.png" alt="Telegram"> Telegram
+      </a>
+      <a href="deals.html" class="nav-link get-deals-btn">
+        <img src="images/icons/flash.png" alt="Deals">
+        <span>GET DEALS NOW</span>
+      </a>
+    </nav>
+  </header>
 
-    <div class="social-bar-container">
-        <div class="w-[930px] h-[70px] bg-[#4B4B4B] rounded-xl shadow-xl flex items-center p-2">
-            <a href="https://www.x.com/thissdax" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-base font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 x-hover">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-                <span>X (Twitter)</span>
-            </a>
-            <div class="separator"></div>
-            <a href="https://www.instagram.com/thissdax/?hl=en" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-base font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 instagram-hover">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 6.5h.01" />
-                </svg>
-                <span>Instagram</span>
-            </a>
-            <div class="separator"></div>
-            <a href="https://t.me/thedaxbrand" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-base font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 telegram-hover">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                </svg>
-                <span>Telegram</span>
-            </a>
-            <div class="separator"></div>
-            <a href="deals.html" class="flex-grow-[1.5] flex items-center justify-center space-x-2 text-white text-base font-medium get-deals-btn py-4 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-yellow-400">
-                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
-                </svg>
-                <span>GET DEALS NOW</span>
-            </a>
-        </div>
+  <!-- MAIN -->
+  <main class="container mx-auto px-4 lg:px-8 mt-24" style="max-width:1200px;">
+    <a href="index.html" class="flex items-center text-gray-400 hover:text-white transition-colors mb-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      <span class="text-sm font-bold">SEE ALL MONTHS</span>
+    </a>
+
+    <h2 id="month-title" class="text-6xl md:text-5xl lg:text-6xl font-bold text-white mb-6"></h2>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-left text-sm font-bold mb-12">
+      <div class="border-l border-gray-700 pl-8">
+        <span class="text-gray-400 block">PROFIT</span>
+        <span id="profit-summary" class="text-2xl font-bold mt-1 text-purple-gradient"></span>
+      </div>
+      <div class="border-l border-gray-700 pl-8">
+        <span class="text-gray-400 block">SETUPS</span>
+        <span id="trades-summary" class="text-2xl font-bold mt-1"></span>
+      </div>
+      <div class="border-l border-gray-700 pl-8">
+        <span class="text-gray-400 block">WINRATE</span>
+        <span id="winrate-summary" class="text-2xl font-bold mt-1"></span>
+      </div>
+      <div class="border-l border-gray-700 pl-8">
+        <span class="text-gray-400 block">WINS</span>
+        <span id="wins-summary" class="text-2xl font-bold mt-1"></span>
+      </div>
     </div>
 
-    <script src="data/trades.js"></script>
+    <!-- Trades -->
+    <div id="trades-container" class="grid grid-cols-2 gap-8 justify-center"></div>
+  </main>
 
-    <script>
-        const tradesContainer = document.getElementById('trades-container');
-        const monthTitle = document.getElementById('month-title');
-        const profitSummary = document.getElementById('profit-summary');
-        const tradesSummary = document.getElementById('trades-summary');
-        const winrateSummary = document.getElementById('winrate-summary');
-        const winsSummary = document.getElementById('wins-summary');
+  <script src="data/trades.js"></script>
+  <script>
+    const tradesContainer = document.getElementById('trades-container');
+    const monthTitle = document.getElementById('month-title');
+    const profitSummary = document.getElementById('profit-summary');
+    const tradesSummary = document.getElementById('trades-summary');
+    const winrateSummary = document.getElementById('winrate-summary');
+    const winsSummary = document.getElementById('wins-summary');
 
-        // Function to create a trade card
-        const createTradeCard = (trade, month, tradeIndex) => {
-            const cardLink = document.createElement('a');
-            // Link to perTrade.html with month and trade index parameters
-            cardLink.href = `perTrade.html?month=${month}&trade=${tradeIndex}`;
-            cardLink.classList = 'block trade-card hover:bg-gray-900 transition-colors cursor-pointer';
+    // Create trade card
+    const createTradeCard = (trade, month, tradeIndex) => {
+      const cardLink = document.createElement('a');
+      cardLink.href = `perTrade.html?month=${month}&trade=${tradeIndex}`;
+      cardLink.classList = 'block trade-card hover:bg-gray-900 transition-colors cursor-pointer';
 
-            // Determine status color
-            let statusColor = '';
-            if (trade.status === 'WIN') {
-                statusColor = 'text-[#84f181]'; // WIN color
-            } else if (trade.status === 'LOSS') {
-                statusColor = 'text-[#f18181]'; // LOSS color
-            } else if (trade.status === 'ACTIVE') {
-                statusColor = 'text-[#f1c440]'; // ACTIVE color (yellow)
-            } else {
-                statusColor = 'text-[#D9D9D9]'; // Other statuses (CANCELLED, UNTRIGGERED)
-            }
+      let statusColor = '';
+      if (trade.status === 'WIN') statusColor = 'text-[#84f181]';
+      else if (trade.status === 'LOSS') statusColor = 'text-[#f18181]';
+      else if (trade.status === 'ACTIVE') statusColor = 'text-[#f1c440]';
+      else statusColor = 'text-[#D9D9D9]';
 
-            // Determine profit color and text
-            let profitColor = 'text-[#D9D9D9]';
-            let profitText = '--';
-            
-            if (trade.profit && trade.profit !== '--') {
-                profitText = trade.profit;
-                profitColor = trade.profit.startsWith('-') ? 'text-[#f18181]' : 'text-[#84f181]';
-            }
+      let profitColor = 'text-[#D9D9D9]';
+      let profitText = '--';
+      if (trade.profit && trade.profit !== '--') {
+        profitText = trade.profit;
+        profitColor = trade.profit.startsWith('-') ? 'text-[#f18181]' : 'text-[#84f181]';
+      }
 
-            const recordsCount = trade.telegramLinks ? trade.telegramLinks.length : 0;
+      const recordsCount = trade.telegramLinks ? trade.telegramLinks.length : 0;
 
-            cardLink.innerHTML = `
-                <div class="flex items-center justify-between mb-4">
-                    <span class="trade-pair">${trade.pair}</span>
-                    <span class="trade-status ${statusColor}">${trade.status.toUpperCase()}</span>
-                </div>
-                <div class="flex items-center justify-between text-sm font-bold">
-                    <div class="text-gray-400">PROFIT: <span class="${profitColor}">${profitText}</span></div>
-                    <div class="text-gray-400">RECORDS: <span class="text-white">${recordsCount}</span></div>
-                </div>
-            `;
-            return cardLink;
-        };
+      cardLink.innerHTML = `
+        <div class="flex items-center justify-between mb-4">
+          <span class="trade-pair">${trade.pair}</span>
+          <span class="trade-status ${statusColor}">${trade.status.toUpperCase()}</span>
+        </div>
+        <div class="flex items-center justify-between text-sm font-bold">
+          <div class="text-gray-400">PROFIT: <span class="${profitColor}">${profitText}</span></div>
+          <div class="text-gray-400">RECORDS: <span class="text-white">${recordsCount}</span></div>
+        </div>
+      `;
+      return cardLink;
+    };
 
-        // Function to calculate statistics
-        const calculateStats = (trades) => {
-            // Filter out non-completed trades
-            const completedTrades = trades.filter(trade => 
-                trade.status !== 'ACTIVE' && 
-                trade.status !== 'CANCELLED' && 
-                trade.status !== 'UNTRIGGERED'
-            );
+    // Stats
+    const calculateStats = (trades) => {
+      const completedTrades = trades.filter(trade =>
+        trade.status !== 'ACTIVE' &&
+        trade.status !== 'CANCELLED' &&
+        trade.status !== 'UNTRIGGERED'
+      );
+      const totalTrades = completedTrades.length;
+      const wins = completedTrades.filter(t => t.status === 'WIN').length;
+      const winrate = totalTrades > 0 ? (wins / totalTrades * 100).toFixed(0) : 0;
+      const totalProfit = completedTrades.reduce((sum, t) => {
+        if (t.profit === '--' || !t.profit) return sum;
+        return sum + parseFloat(t.profit.replace('R', ''));
+      }, 0);
+      return { totalTrades, wins, winrate, totalProfit: totalProfit.toFixed(2) };
+    };
 
-            const totalTrades = completedTrades.length;
-            const wins = completedTrades.filter(t => t.status === 'WIN').length;
-            const winrate = totalTrades > 0 ? (wins / totalTrades * 100).toFixed(0) : 0;
-            
-            const totalProfit = completedTrades.reduce((sum, t) => {
-                if (t.profit === '--' || !t.profit) return sum;
-                const profitValue = parseFloat(t.profit.replace('R', ''));
-                return sum + profitValue;
-            }, 0);
+    // Render
+    const renderPage = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const month = urlParams.get('month');
+      if (!month || !monthlyTrades[month]) {
+        monthTitle.textContent = 'Month Not Found';
+        tradesContainer.innerHTML = '<div class="text-center text-gray-400 col-span-2">No trades found for this month.</div>';
+        return;
+      }
+      const trades = monthlyTrades[month];
+      monthTitle.textContent = month.toUpperCase();
+      const stats = calculateStats(trades);
+      profitSummary.textContent = `${stats.totalProfit}R`;
+      tradesSummary.textContent = stats.totalTrades;
+      winrateSummary.textContent = `${stats.winrate}%`;
+      winsSummary.textContent = stats.wins;
 
-            return {
-                totalTrades,
-                wins,
-                winrate,
-                totalProfit: totalProfit.toFixed(2)            };
-        };
+      const profitValue = parseFloat(stats.totalProfit);
+      if (profitValue > 0) profitSummary.className = 'text-2xl font-bold mt-1 text-green-400';
+      else if (profitValue < 0) profitSummary.className = 'text-2xl font-bold mt-1 text-red-400';
+      else profitSummary.className = 'text-2xl font-bold mt-1 text-gray-400';
 
-        // Function to render the page based on the month
-        const renderPage = () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const month = urlParams.get('month');
+      tradesContainer.innerHTML = '';
+      trades.forEach((trade, i) => tradesContainer.appendChild(createTradeCard(trade, month, i)));
+    };
 
-            if (!month || !monthlyTrades[month]) {
-                // Handle case where month is not found or URL is invalid
-                monthTitle.textContent = 'Month Not Found';
-                tradesContainer.innerHTML = '<div class="text-center text-gray-400 col-span-2">No trades found for this month.</div>';
-                return;
-            }
-
-            const trades = monthlyTrades[month];
-
-            // Render month title
-            monthTitle.textContent = month.toUpperCase();
-
-            // Calculate and display statistics
-            const stats = calculateStats(trades);
-
-            profitSummary.textContent = `${stats.totalProfit}R`;
-            tradesSummary.textContent = stats.totalTrades;
-            winrateSummary.textContent = `${stats.winrate}%`;
-            winsSummary.textContent = stats.wins;
-
-            // Set profit color based on positive/negative
-            const profitValue = parseFloat(stats.totalProfit);
-            if (profitValue > 0) {
-                profitSummary.className = 'text-2xl font-bold mt-1 text-green-400';
-            } else if (profitValue < 0) {
-                profitSummary.className = 'text-2xl font-bold mt-1 text-red-400';
-            } else {
-                profitSummary.className = 'text-2xl font-bold mt-1 text-gray-400';
-            }
-
-            // Render trade cards
-            tradesContainer.innerHTML = ''; // Clear previous content
-            trades.forEach((trade, index) => {
-                tradesContainer.appendChild(createTradeCard(trade, month, index));
-            });
-        };
-
-        // Render the page on load
-        document.addEventListener('DOMContentLoaded', renderPage);
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPage();
+      document.getElementById('hamburger-menu').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.getElementById('mobile-nav').classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>

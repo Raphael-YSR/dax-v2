@@ -34,37 +34,57 @@
             z-index: 0;
         }
 
-        /* Styles for the new social bar */
-        .social-bar-container {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            z-index: 50;
+        /* Styles for the desktop navigation bar */
+        .nav-menu {
+            -webkit-text-size-adjust: 100%;
+            --library-text--background: black;
+            --library-text--paragraphs: #e6e6e699;
+            --library-text--light: #e6e6e6;
+            --library-text--border: #e6e6e633;
+            --library-text--dark: #191819;
+            --library-text--big-card-corners: .94em;
+            color: var(--library-text--paragraphs);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.8em;
+            box-sizing: border-box;
+            float: right;
+            grid-column-gap: 4px;
+            grid-row-gap: 4px;
+            backdrop-filter: blur(40px);
+            background-color: #47474780;
+            border-radius: .76em;
+            flex-flow: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: .35em;
+            display: flex;
+        }
+        .nav-link {
+            color: rgb(230, 230, 230);
+            text-decoration: none;
+            padding: 8px 12px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5em;
         }
         
-        .separator {
-            width: 1px;
-            background-color: rgba(255, 255, 255, 0.2);
-            height: 70%;
-        }
-
-        .social-buttons{
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-        .x-hover:hover {
-            background-color: #3a3737;
-        }
-
-        .instagram-hover:hover {
-            background-color: #3a3737;
-        }
-
-        .telegram-hover:hover {
-            background-color: #3a3737;
-            opacity: 0.9;
+        .nav-link img {
+            width: 20px;
+            height: 20px;
         }
         
+        .nav-link-current {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5em;
+        }
+
         /* Specific styling for the animated 'Get Deals' button */
         .get-deals-btn {
             position: relative;
@@ -107,11 +127,41 @@
         /* Fixed image dimensions for desktop */
         .deals-image {
             width: 500px;
-            height: 600px;
+            height: 620px;
             object-fit: cover;
             border-radius: 0.75rem;
             margin-left: 40px;
             margin-right: 40px;
+        }
+
+        /* Hamburger menu styling */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 14px;
+            height: 10px;
+            cursor: pointer;
+            z-index: 50;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hamburger menu animations (transforms into an 'X') */
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
         /* Mobile responsive adjustments */
@@ -122,104 +172,168 @@
                 max-width: 400px;
                 margin: 0 auto;
             }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
         }
 
+        /* Mobile-specific changes from the previous conversation */
         @media (max-width: 640px) {
             .deals-image {
-                height: 400px;
+                height: 430px;
                 max-width: 320px;
+            }
+
+            /* Change mobile nav to slide from right and occupy 2/3 of screen */
+            #mobile-nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 66.66%; /* Occupy 2/3 of the screen width */
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end; /* Align to the right */
+                transform: translateX(100%); /* Start off-screen to the right */
+                transition: transform 0.3s ease-in-out;
+                z-index: 40;
+                padding-right: 1.5rem; /* Add some padding on the right */
+            }
+
+            #mobile-nav.active {
+                transform: translateX(0); /* Slide into view */
+            }
+
+            #mobile-nav .nav-link {
+                padding: 1.25rem 0; /* Add vertical padding */
+                font-size: 1rem; /* Smaller font size */
+                width: 100%; /* Make links full width of the card */
+                justify-content: flex-end; /* Align text to the right */
+            }
+            
+            #mobile-nav .nav-link img {
+                width: 1rem; /* Smaller icons */
+                height: 1rem;
+            }
+
+            .mobile-card-wrapper {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            /* Make the text in the cards smaller on mobile */
+            .mobile-card-text-sm h2 {
+                font-size: 1rem;
+            }
+
+            .mobile-card-text-sm ul {
+                font-size: 0.75rem;
             }
         }
     </style>
 </head>
 <body class="gradient-bg overflow-y-auto">
-<header class="relative z-20 flex justify-between items-center p-4 md:p-6 lg:p-8">
-    <h1 class="text-sm md:text-2xl lg:text-3xl font-bold text-white tracking-wide">DAX BACI🧑‍🍳</h1>
-    <div class="social-bar-container md:absolute md:top-6 md:right-8">
-        <div class="w-[600px] h-[60px] bg-[#4B4B4B] rounded-xl shadow-xl flex items-center p-2">
-            <a href="https://www.x.com/thissdax" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-sm font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 x-hover">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-                <span>X (Twitter)</span>
-            </a>
-            <div class="separator"></div>
-            <a href="https://www.instagram.com/thissdax/?hl=en" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-sm font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 instagram-hover">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 6.5h.01" />
-                </svg>
-                <span>Instagram</span>
-            </a>
-            <div class="separator"></div>
-            <a href="https://t.me/thedaxbrand" class="social-buttons flex-1 flex items-center justify-center space-x-2 text-white text-sm font-medium transition-colors duration-300 ease-in-out rounded-lg py-4 telegram-hover">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                </svg>
-                <span>Telegram</span>
-            </a>
-            <div class="separator"></div>
-            <a href="deals.html" class="flex-grow-[1.5] flex items-center justify-center space-x-2 text-white text-sm font-medium get-deals-btn py-4 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-yellow-400">
-                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
-                </svg>
-                <span>GET DEALS NOW</span>
-            </a>
-        </div>
-    </div>
+<header class="fixed top-0 w-full z-50 flex justify-between items-center p-4 md:p-6 lg:p-8">
+    <a href="index.html" class="text-sm md:text-2xl lg:text-3xl font-bold text-white tracking-wide float-left">DAX BACI🧑‍🍳</a>
+    
+    <nav role="navigation" class="nav-menu text-sm">
+
+        <a href="https://www.x.com/thissdax" class="nav-link">
+            <img src="images/icons/x.png" alt="X (Twitter) Icon"> X (Twitter)
+        </a>
+        <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link">
+            <img src="images/icons/instagram.png" alt="Instagram Icon"> Instagram
+        </a>
+        <a href="https://t.me/thedaxbrand" class="nav-link">
+            <img src="images/icons/telegram.png" alt="Telegram Icon"> Telegram
+        </a>
+        <a href="deals.html" class="nav-link get-deals-btn">
+            <img src="images/icons/flash.png" alt="Deals Icon">
+            <span>GET DEALS NOW</span>
+        </a>
+    </nav>
+
+    <button id="hamburger-menu" class="hamburger-menu lg:hidden">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="mobile-nav" class="lg:hidden">
+        <a href="https://www.x.com/thissdax" class="nav-link">
+            <img src="images/icons/x.png" alt="X (Twitter) Icon"> X (Twitter)
+        </a>
+        <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link">
+            <img src="images/icons/instagram.png" alt="Instagram Icon"> Instagram
+        </a>
+        <a href="https://t.me/thedaxbrand" class="nav-link">
+            <img src="images/icons/telegram.png" alt="Telegram Icon"> Telegram
+        </a>
+        <a href="deals.html" class="nav-link get-deals-btn">
+            <img src="images/icons/flash.png" alt="Deals Icon">
+            <span>GET DEALS NOW</span>
+        </a>
+    </nav>
 </header>
 
-    <main class="relative z-10 p-4 md:p-6 lg:p-8">
-        <div class="hidden lg:flex w-full items-center justify-center">
-            <div class="w-full max-w-7xl grid grid-cols-[500px_2px_1fr] gap-8 items-center">
-                
-                <div class="flex items-center justify-center">
-                    <img src="images/leftdeals.jpg" alt="Dax Baci deals" class="deals-image">
-                </div>
-
-                <div class="w-[2px] bg-gray-700 self-stretch"></div>
-
-                <div class="flex flex-col justify-center items-start pl-8">
-                    <a href="https://my.assexmarkets.com/auth/register?partner_code=3831141" target="_blank" class="w-full max-w-xl card-container bg-black rounded-xl p-6 flex items-center justify-between space-x-6 mb-8">
-                        <div class="flex-shrink-0">
-                            <h2 class="text-2xl font-bold text-white mb-2">THE BROKER I COOK WITH!</h2>
-                            <ul class="text-sm text-gray-400 font-medium space-y-1">
-                                <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>90% deposit bonus</span></li>
-                                <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Zero spread</span></li>
-                                <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Zero swap fees/commissions</span></li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
-                            <img src="images/asm.jpg" alt="Assex Markets logo" class="w-full h-full object-cover">
-                        </div>
-                    </a>
-
-                    <a href="https://fundednext.com/?fpr=dax" target="_blank" class="w-full max-w-xl card-container bg-black rounded-xl p-6 flex items-center justify-between space-x-6">
-                        <div class="flex-shrink-0">
-                            <h2 class="text-2xl font-bold text-white mb-2">BEST PROP FIRM RIGHT NOW!</h2>
-                            <ul class="text-sm text-gray-400 font-medium space-y-1">
-                                <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Secured payout</span></li>
-                                <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>No hidden rules</span></li>
-                                <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>No consistency rules</span></li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
-                            <img src="images/fn.jpg" alt="FundedNext logo" class="w-full h-full object-cover">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="lg:hidden flex flex-col items-center space-y-8">
+<main class="relative z-10 pt-16 p-4 md:p-6 lg:p-8 mt-20">
+    <div class="hidden lg:flex w-full items-center justify-center">
+        <div class="w-full max-w-7xl grid grid-cols-[500px_2px_1fr] gap-8 items-center">
             
-            <div class="w-full flex justify-center">
+            <div class="flex items-center justify-center">
                 <img src="images/leftdeals.jpg" alt="Dax Baci deals" class="deals-image">
             </div>
 
-            <div class="w-full max-w-2xl px-4 space-y-6">
-                <a href="https://my.assexmarkets.com/auth/register?partner_code=3831141" target="_blank" class="block card-container bg-black rounded-xl p-4 md:p-6">
+            <div class="w-[2px] bg-gray-700 self-stretch"></div>
+
+            <div class="flex flex-col justify-center items-start pl-8">
+                <a href="https://my.assexmarkets.com/auth/register?partner_code=3831141" target="_blank" class="w-full max-w-xl card-container bg-black rounded-xl p-6 flex items-center justify-between space-x-6 mb-8">
+                    <div class="flex-shrink-0">
+                        <h2 class="text-2xl font-bold text-white mb-2">THE BROKER I COOK WITH!</h2>
+                        <ul class="text-sm text-gray-400 font-medium space-y-1">
+                            <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>90% deposit bonus</span></li>
+                            <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Zero spread</span></li>
+                            <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Zero swap fees/commissions</span></li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
+                        <img src="images/asm.jpg" alt="Assex Markets logo" class="w-full h-full object-cover">
+                    </div>
+                </a>
+
+                <a href="https://fundednext.com/?fpr=dax" target="_blank" class="w-full max-w-xl card-container bg-black rounded-xl p-6 flex items-center justify-between space-x-6">
+                    <div class="flex-shrink-0">
+                        <h2 class="text-2xl font-bold text-white mb-2">BEST PROP FIRM RIGHT NOW!</h2>
+                        <ul class="text-sm text-gray-400 font-medium space-y-1">
+                            <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Secured payout</span></li>
+                            <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>No hidden rules</span></li>
+                            <li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>No consistency rules</span></li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0 w-32 h-32 rounded-lg overflow-hidden">
+                        <img src="images/fn.jpg" alt="FundedNext logo" class="w-full h-full object-cover">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="lg:hidden flex flex-col items-center space-y-8">
+        
+        <div class="w-full flex justify-center">
+            <img src="images/leftdeals.jpg" alt="Dax Baci deals" class="deals-image">
+        </div>
+
+        <div class="w-full px-4 space-y-6 flex flex-col items-center">
+            <div class="mobile-card-wrapper w-full">
+                <a href="https://my.assexmarkets.com/auth/register?partner_code=3831141" target="_blank" class="block w-full card-container bg-black rounded-xl p-4 md:p-6 mobile-card-text-sm">
                     <div class="flex items-center space-x-4">
                         <div class="flex-1">
                             <h2 class="text-base md:text-xl font-bold text-white mb-3">THE BROKER I COOK WITH!</h2>
@@ -234,8 +348,10 @@
                         </div>
                     </div>
                 </a>
+            </div>
 
-                <a href="https://fundednext.com/?fpr=dax" target="_blank" class="block card-container bg-black rounded-xl p-4 md:p-6">
+            <div class="mobile-card-wrapper w-full">
+                <a href="https://fundednext.com/?fpr=dax" target="_blank" class="block w-full card-container bg-black rounded-xl p-4 md:p-6 mobile-card-text-sm">
                     <div class="flex items-center space-x-4">
                         <div class="flex-1">
                             <h2 class="text-base md:text-xl font-bold text-white mb-3">BEST PROP FIRM RIGHT NOW!</h2>
@@ -252,7 +368,13 @@
                 </a>
             </div>
         </div>
-    </main>
-
+    </div>
+</main>
+<script>
+    document.getElementById('hamburger-menu').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.getElementById('mobile-nav').classList.toggle('active');
+    });
+</script>
 </body>
 </html>
