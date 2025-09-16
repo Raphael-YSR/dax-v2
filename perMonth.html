@@ -277,7 +277,7 @@
     // Create trade card
     const createTradeCard = (trade, month, tradeIndex) => {
       const cardLink = document.createElement('a');
-      cardLink.href = `/month/${month}/${tradeIndex}`;
+      cardLink.href = `/${month}/${tradeIndex}`;
       cardLink.classList = 'block trade-card hover:bg-gray-900 transition-colors cursor-pointer';
 
       let statusColor = '';

@@ -19,13 +19,11 @@ app.get('/deals', (req, res) => {
 
 // Route for a specific month's trades
 app.get('/:month', (req, res) => {
-    // The HTML page will extract the 'month' from the URL path on the client-side
     res.sendFile(path.join(__dirname, 'perMonth.html'));
 });
 
-// Route for a specific trade within a month
-app.get('/month/:month/:tradeNo', (req, res) => {
-    // The HTML page will extract the 'month' and 'tradeNo' from the URL path on the client-side
+// Route for a specific trade within a month - FIXED ROUTE
+app.get('/:month/:tradeNo', (req, res) => {
     res.sendFile(path.join(__dirname, 'perTrade.html'));
 });
 

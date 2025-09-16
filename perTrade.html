@@ -195,16 +195,16 @@
         
         <nav role="navigation" class="nav-menu text-sm">
             <a href="https://www.x.com/thissdax" class="nav-link">
-                <img src="images/icons/x.png" alt="X (Twitter) Icon"> X (Twitter)
+                <img src="/images/icons/x.png" alt="X (Twitter) Icon"> X (Twitter)
             </a>
             <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link">
-                <img src="images/icons/instagram.png" alt="Instagram Icon"> Instagram
+                <img src="/images/icons/instagram.png" alt="Instagram Icon"> Instagram
             </a>
             <a href="https://t.me/thedaxbrand" class="nav-link">
-                <img src="images/icons/telegram.png" alt="Telegram Icon"> Telegram
+                <img src="/images/icons/telegram.png" alt="Telegram Icon"> Telegram
             </a>
             <a href="/deals" class="nav-link get-deals-btn">
-                <img src="images/icons/flash.png" alt="Deals Icon">
+                <img src="/images/icons/flash.png" alt="Deals Icon">
                 <span>GET DEALS NOW</span>
             </a>
         </nav>
@@ -218,16 +218,16 @@
         <nav id="mobile-nav" class="lg:hidden">
             <div class="flex flex-col items-end w-full space-y-4">
                 <a href="https://www.x.com/thissdax" class="nav-link">
-                    <img src="images/icons/x.png" alt="X (Twitter) Icon"> X (Twitter)
+                    <img src="/images/icons/x.png" alt="X (Twitter) Icon"> X (Twitter)
                 </a>
                 <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link">
-                    <img src="images/icons/instagram.png" alt="Instagram Icon"> Instagram
+                    <img src="/images/icons/instagram.png" alt="Instagram Icon"> Instagram
                 </a>
                 <a href="https://t.me/thedaxbrand" class="nav-link">
-                    <img src="images/icons/telegram.png" alt="Telegram Icon"> Telegram
+                    <img src="/images/icons/telegram.png" alt="Telegram Icon"> Telegram
                 </a>
                 <a href="/deals" class="nav-link get-deals-btn">
-                    <img src="images/icons/flash.png" alt="Deals Icon">
+                    <img src="/images/icons/flash.png" alt="Deals Icon">
                     <span>GET DEALS NOW</span>
                 </a>
             </div>
@@ -242,39 +242,38 @@
             <span class="text-sm font-bold">SEE ALL TRADES FOR THIS MONTH</span>
         </a>
 
-<div class="bg-black rounded-lg p-6 mb-8">
-    <h1 id="trade-pair" class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"></h1>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-left text-sm font-bold">
-        <div class="border-l border-gray-700 pl-8">
-            <span class="text-gray-400 block">PROFIT</span>
-            <span id="trade-profit" class="text-xl font-bold mt-1"></span>
+        <div class="bg-black rounded-lg p-6 mb-8">
+            <h1 id="trade-pair" class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"></h1>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-left text-sm font-bold">
+                <div class="border-l border-gray-700 pl-8">
+                    <span class="text-gray-400 block">PROFIT</span>
+                    <span id="trade-profit" class="text-xl font-bold mt-1"></span>
+                </div>
+                <div class="border-l border-gray-700 pl-8">
+                    <span class="text-gray-400 block">STATUS</span>
+                    <span id="trade-status" class="text-xl font-bold mt-1"></span>
+                </div>
+                <div class="border-l border-gray-700 pl-8">
+                    <span class="text-gray-400 block">DATE OPENED</span>
+                    <span id="trade-open-date" class="text-xl font-bold mt-1"></span>
+                </div>
+                <div class="border-l border-gray-700 pl-8">
+                    <span class="text-gray-400 block">CLOSED</span>
+                    <span id="trade-closed-date" class="text-xl font-bold mt-1"></span>
+                </div>
+            </div>
         </div>
-        <div class="border-l border-gray-700 pl-8">
-            <span class="text-gray-400 block">STATUS</span>
-            <span id="trade-status" class="text-xl font-bold mt-1"></span>
-        </div>
-        <div class="border-l border-gray-700 pl-8">
-            <span class="text-gray-400 block">DATE OPENED</span>
-            <span id="trade-open-date" class="text-xl font-bold mt-1"></span>
-        </div>
-        <div class="border-l border-gray-700 pl-8">
-            <span class="text-gray-400 block">CLOSED</span>
-            <span id="trade-closed-date" class="text-xl font-bold mt-1"></span>
-        </div>
-    </div>
-</div>
-
 
         <div id="telegram-embeds" class="flex flex-col items-center gap-6 bg-black rounded-2xl p-6">
-            </div>
+        </div>
 
     </main>
 
-      <footer class="text-center text-gray-500 text-sm py-6 mt-12">
-    Footer for Now
-  </footer>
+    <footer class="text-center text-gray-500 text-sm py-6 mt-12">
+        Footer for Now
+    </footer>
 
-    <script src="data/trades.js"></script>
+    <script src="/data/trades.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -294,32 +293,55 @@
                     mobileNav.classList.remove('active');
                 }
             });
-            
-            const pathSegments = window.location.pathname.split('/').filter(segment => segment);
-            const month = pathSegments.length > 1 ? pathSegments[1] : null;
 
-            if (!month || !monthlyTrades[month]) {
+            // Add console.logs for debugging
+            console.log('DOM Content Loaded. Starting script...');
+            console.log('Current URL path:', window.location.pathname);
+
+            const pathSegments = window.location.pathname.split('/').filter(segment => segment);
+            const month = pathSegments.length > 0 ? pathSegments[0] : null;
+            const tradeIndex = pathSegments.length > 1 ? parseInt(pathSegments[1], 10) : null;
+
+            console.log('Extracted month:', month);
+            console.log('Extracted trade index:', tradeIndex);
+
+            if (!month || !monthlyTrades || !monthlyTrades[month]) {
+                console.error('Month not found or data not loaded. Month:', month);
+                console.error('Available months:', Object.keys(monthlyTrades || {}));
+                document.body.innerHTML = '<div class="flex items-center justify-center h-screen text-red-500"><h1>Month not found.</h1></div>';
+                return;
+            }
+
+            if (tradeIndex === null || tradeIndex === undefined || isNaN(tradeIndex)) {
+                console.error('Trade index not found or invalid:', tradeIndex);
+                document.body.innerHTML = '<div class="flex items-center justify-center h-screen text-red-500"><h1>Trade index not found.</h1></div>';
+                return;
+            }
+
+            const trade = monthlyTrades[month][tradeIndex];
+
+            if (!trade) {
+                console.error('Trade not found at index:', tradeIndex);
+                console.error('Available trades for', month, ':', monthlyTrades[month].length);
                 document.body.innerHTML = '<div class="flex items-center justify-center h-screen text-red-500"><h1>Trade not found.</h1></div>';
                 return;
             }
 
-            const tradeIndex = parseInt(pathSegments[2], 10);
-            const trade = monthlyTrades[month][tradeIndex];
-
             // Update back link to go to the correct month page
             document.getElementById('back-link').href = `/${month}`;
-
 
             // Populate trade details
             document.getElementById('trade-pair').textContent = trade.pair;
             
             const profitEl = document.getElementById('trade-profit');
-            if (trade.profit === '--') {
-                profitEl.textContent = '--';
+            if (trade.profit === '--' || trade.profit === '0R') {
+                profitEl.textContent = trade.profit;
                 profitEl.classList.add('text-gray-400');
             } else {
                 profitEl.textContent = trade.profit;
-                if (parseFloat(trade.profit) >= 0) {
+                // Check if profit starts with a minus sign or if the numeric value is negative
+                const numericProfit = parseFloat(trade.profit.replace('R', ''));
+                if (numericProfit >= 0) {
                     profitEl.classList.add('text-green-400');
                 } else {
                     profitEl.classList.add('text-red-400');
@@ -332,14 +354,14 @@
                 statusEl.classList.add('text-green-400');
             } else if (trade.status === 'LOSS') {
                 statusEl.classList.add('text-red-400');
-            } else if (trade.status === 'ACTIVE') {
+            } else if (trade.status === 'RUNNING' || trade.status === 'ACTIVE') {
                 statusEl.classList.add('text-yellow-400');
             } else {
                 statusEl.classList.add('text-gray-400');
             }
             
-            document.getElementById('trade-open-date').textContent = trade.openDate;
-            document.getElementById('trade-closed-date').textContent = trade.closedDate;
+            document.getElementById('trade-open-date').textContent = trade.openDate || '--';
+            document.getElementById('trade-closed-date').textContent = trade.closedDate || '--';
 
             // Generate Telegram embeds
             const embedsContainer = document.getElementById('telegram-embeds');

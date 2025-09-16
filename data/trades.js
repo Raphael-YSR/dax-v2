@@ -757,15 +757,14 @@ const monthlyTrades = {
       ],
     },
     {
-      pair: "CHFJPY // Confirm last link",
+      pair: "CHFJPY",
       profit: "0R",
-      status: "CANCELLED",
+      status: "UNTRIGGERED",
       openDate: "—",
       closedDate: "—",
       telegramLinks: [
 "https://t.me/thedaxbrand/1679",
 "https://t.me/thedaxbrand/1681",
-"https://t.me/thedaxbrand/1682",
       ],
     },
   ],
@@ -882,7 +881,7 @@ const monthlyTrades = {
       pair: "NZDCHF",
       profit: "2R",
       status: "WIN",
-      openDate: "MARCH 1",
+      openDate: "MARCH 31",
       closedDate: "APRIL 2",
       telegramLinks: [
         "https://t.me/thedaxbrand/2170",
