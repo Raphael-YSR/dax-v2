@@ -317,7 +317,8 @@
       );
       const totalTrades = completedTrades.length;
       const wins = completedTrades.filter(t => t.status === 'WIN').length;
-      const winrate = totalTrades > 0 ? (wins / totalTrades * 100).toFixed(0) : 0;
+      const losses = completedTrades.filter(t => t.status === 'LOSS').length;
+      const winrate = (wins + losses) === 0 ? 0 : Math.round((wins / (wins + losses)) * 100).toFixed(0);
       const totalProfit = completedTrades.reduce((sum, t) => {
         if (t.profit === '--' || !t.profit) return sum;
         return sum + parseFloat(t.profit.replace('R', ''));
