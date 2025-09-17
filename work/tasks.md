@@ -4,6 +4,7 @@
 [] - blur section on/above floats - just slightly
 [] - Design the mobile view - the purple blend is too much
 [] - Telegram embed feature just stopped working! WHAT?
+[] - favicon.ico
 
 
 ---
