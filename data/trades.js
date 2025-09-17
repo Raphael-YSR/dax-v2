@@ -58,12 +58,13 @@ const monthlyTrades = {
         {
       pair: "CADJPY",
       profit: "0R",
-      status: "AWAITING",
-      openDate: "—", //"SEPTEMBER 1", // Use "—" if not applicable
+      status: "RUNNING",
+      openDate: "SEPTEMBER 17", //"SEPTEMBER 1", // Use "—" if not applicable
       closedDate: "—", // Use "—" if not applicable
       telegramLinks: [  
         "https://t.me/thedaxbrand/3220",
         "https://t.me/thedaxbrand/3243",
+        "https://t.me/thedaxbrand/3249",
         ],
     },
         {
