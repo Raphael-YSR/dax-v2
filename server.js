@@ -28,6 +28,9 @@ app.get('/:month/:tradeNo', (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+app.get("/", (req, res) => {
+  res.send("Hello from Express on Vercel!");
 });
+
+// Export the app as a function for Vercel
+module.exports = app;
