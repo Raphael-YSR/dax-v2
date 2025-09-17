@@ -1,12 +1,14 @@
-[] - Dynamic Scroll[] - revise trades.js round 2
+[] - Dynamic Scroll
+[] - revise trades.js round 2
 [] - Copyright info
 [] - blur section on/above floads
-[] - revise trades.js   
+
 
 ---
 [X] - deals page
 [x] - New links section
 [x] - perTrade.html
+[X] - revise trades.js    
 [x] - Aligh month to the left
 [x] - Rearrange trade data effect
 [x] - PerMonth

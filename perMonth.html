@@ -173,6 +173,52 @@
       font-weight: 700;
     }
 
+    /* iPhone-style Toggle Switch */
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 28px;
+      background-color: #374151;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .toggle-switch.inactive {
+      background-color: #34d399;
+    }
+    
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 24px;
+      height: 24px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .toggle-switch.inactive::after {
+      transform: translateX(20px);
+    }
+    
+    .toggle-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #9ca3af;
+      user-select: none;
+    }
+
     /* Responsive rules */
     @media (max-width: 1000px) {
       .nav-menu { display: none; }
@@ -259,10 +305,14 @@
     <div id="trades-container" class="grid grid-cols-2 gap-8 justify-center"></div>
   </main>
 
-  
-
   <footer class="text-center text-gray-500 text-sm py-6 mt-12">
-    Footer for Now
+    <div class="toggle-container mb-4">
+      <span class="toggle-label">Show All</span>
+      <div id="filter-toggle" class="toggle-switch" data-active="true">
+      </div>
+      <span class="toggle-label">Wins & Losses Only</span>
+    </div>
+    <div>Footer for Now</div>
   </footer>
 
   <script src="data/trades.js"></script>
@@ -273,11 +323,32 @@
     const tradesSummary = document.getElementById('trades-summary');
     const winrateSummary = document.getElementById('winrate-summary');
     const winsSummary = document.getElementById('wins-summary');
+    const filterToggle = document.getElementById('filter-toggle');
+    
+    let isFilterActive = true; // Default to showing only wins/losses
+    let currentTrades = [];
+    let currentMonth = '';
+
+    // Toggle functionality
+    filterToggle.addEventListener('click', function() {
+      isFilterActive = !isFilterActive;
+      this.classList.toggle('inactive');
+      this.dataset.active = isFilterActive;
+      renderTrades();
+    });
+
+    // Filter trades based on toggle state
+    const getFilteredTrades = (trades) => {
+      if (!isFilterActive) {
+        return trades; // Show all trades
+      }
+      return trades.filter(trade => trade.status === 'WIN' || trade.status === 'LOSS');
+    };
 
     // Create trade card
-    const createTradeCard = (trade, month, tradeIndex) => {
+    const createTradeCard = (trade, month, originalIndex) => {
       const cardLink = document.createElement('a');
-      cardLink.href = `/${month}/${tradeIndex}`;
+      cardLink.href = `/${month}/${originalIndex}`;
       cardLink.classList = 'block trade-card hover:bg-gray-900 transition-colors cursor-pointer';
 
       let statusColor = '';
@@ -308,12 +379,14 @@
       return cardLink;
     };
 
-    // Stats
-    const calculateStats = (trades) => {
-      const completedTrades = trades.filter(trade =>
+    // Stats calculation (always based on all trades for accuracy)
+    const calculateStats = (allTrades) => {
+      const completedTrades = allTrades.filter(trade =>
         trade.status !== 'ACTIVE' &&
         trade.status !== 'CANCELLED' &&
-        trade.status !== 'UNTRIGGERED'
+        trade.status !== 'UNTRIGGERED' &&
+        trade.status !== 'AWAITING' &&
+        trade.status !== 'RUNNING'
       );
       const totalTrades = completedTrades.length;
       const wins = completedTrades.filter(t => t.status === 'WIN').length;
@@ -326,7 +399,21 @@
       return { totalTrades, wins, winrate, totalProfit: totalProfit.toFixed(2) };
     };
 
-    // Render
+    // Render trades (filtered based on toggle)
+    const renderTrades = () => {
+      if (!currentTrades.length) return;
+      
+      const filteredTrades = getFilteredTrades(currentTrades);
+      
+      tradesContainer.innerHTML = '';
+      filteredTrades.forEach((trade, i) => {
+        // Find original index for correct routing
+        const originalIndex = currentTrades.findIndex(t => t === trade);
+        tradesContainer.appendChild(createTradeCard(trade, currentMonth, originalIndex));
+      });
+    };
+
+    // Main render function
     const renderPage = () => {
       const pathSegments = window.location.pathname.split('/').filter(segment => segment);
       const month = pathSegments.length > 0 ? pathSegments[0] : null;
@@ -336,9 +423,13 @@
         tradesContainer.innerHTML = '<div class="text-center text-gray-400 col-span-2">No trades found for this month.</div>';
         return;
       }
-      const trades = monthlyTrades[month];
+      
+      currentTrades = monthlyTrades[month];
+      currentMonth = month;
       monthTitle.textContent = month.toUpperCase();
-      const stats = calculateStats(trades);
+      
+      // Stats are always calculated from all trades
+      const stats = calculateStats(currentTrades);
       profitSummary.textContent = `${stats.totalProfit}R`;
       tradesSummary.textContent = stats.totalTrades;
       winrateSummary.textContent = `${stats.winrate}%`;
@@ -349,12 +440,19 @@
       else if (profitValue < 0) profitSummary.className = 'text-2xl font-bold mt-1 text-red-400';
       else profitSummary.className = 'text-2xl font-bold mt-1 text-gray-400';
 
-      tradesContainer.innerHTML = '';
-      trades.forEach((trade, i) => tradesContainer.appendChild(createTradeCard(trade, month, i)));
+      renderTrades();
     };
 
     document.addEventListener('DOMContentLoaded', () => {
       renderPage();
+
+        // Sync toggle UI with logic
+    if (isFilterActive) {
+      filterToggle.classList.add('inactive');  // knob to the right (green)
+    } else {
+      filterToggle.classList.remove('inactive'); // knob to the left (gray)
+    }
+    
       const hamburger = document.getElementById('hamburger-menu');
       const mobileNav = document.getElementById('mobile-nav');
 

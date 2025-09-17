@@ -5,6 +5,79 @@
 
 const monthlyTrades = {
   september: [
+    /**
+      * Example trade object
+    {
+      pair: "GBPCHF",
+      profit: "3.5R",
+      status: "WIN",
+      openDate: "SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "SEPTEMBER 2", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/2910",
+        "https://t.me/thedaxbrand/2925",
+        ],
+    },
+      * 
+      * 
+      * Status can be one of: "WIN", "LOSS", "AWAITING", "RUNNING", "CANCELLED", "UNTRIGGERED"
+     */
+    {
+      pair: "GBPCHF",
+      profit: "0R",
+      status: "AWAITING",
+      openDate: "—", //"SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3217",
+        // "https://t.me/thedaxbrand/2925",
+        ],
+    },
+        {
+      pair: "GBPCHF",
+      profit: "0R",
+      status: "AWAITING",
+      openDate: "—", //"SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3218",
+        "https://t.me/thedaxbrand/3241",
+        ],
+    },
+        {
+      pair: "NZDUSD",
+      profit: "0R",
+      status: "AWAITING",
+      openDate: "—", //"SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3219",
+        "https://t.me/thedaxbrand/3242",
+        ],
+    },
+        {
+      pair: "CADJPY",
+      profit: "0R",
+      status: "AWAITING",
+      openDate: "—", //"SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3220",
+        "https://t.me/thedaxbrand/3243",
+        ],
+    },
+        {
+      pair: "EURGBP",
+      profit: "2R",
+      status: "WIN",
+      openDate: "SEPTEMBER 15", //"SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "SEPTEMBER 16", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3173",
+        "https://t.me/thedaxbrand/3174",
+        "https://t.me/thedaxbrand/3239",
+        ],
+    },
     {
       pair: "GBPCHF",
       profit: "3.5R",
@@ -278,7 +351,7 @@ const monthlyTrades = {
     {
       pair: "NZDJPY",
       profit: "0R",
-      status: "AWAITING",
+      status: "CANCELLED",
       openDate: "—",
       closedDate: "—",
       telegramLinks:[
