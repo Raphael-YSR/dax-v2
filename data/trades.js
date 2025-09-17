@@ -65,6 +65,7 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/3220",
         "https://t.me/thedaxbrand/3243",
         "https://t.me/thedaxbrand/3249",
+        "https://t.me/thedaxbrand/3254",
         ],
     },
         {

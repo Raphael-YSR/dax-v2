@@ -7,6 +7,17 @@ const port = process.env.PORT || 3000;
 // Serve static files from the same directory
 app.use(express.static(path.join(__dirname)));
 
+// Explicit routes for static files
+app.get('/images/*', (req, res) => {
+    const filePath = path.join(__dirname, req.path);
+    res.sendFile(filePath);
+});
+
+app.get('/data/*', (req, res) => {
+    const filePath = path.join(__dirname, req.path);
+    res.sendFile(filePath);
+});
+
 // Route for the main page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
