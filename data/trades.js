@@ -259,7 +259,7 @@ const monthlyTrades = {
     },
     {
       pair: "EURJPY",
-      profit: "4R",
+      profit: "7R",
       status: "WIN",
       openDate: "AUGUST 12",
       closedDate: "AUGUST 20",

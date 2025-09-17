@@ -1,7 +1,8 @@
 [] - Dynamic Scroll
 [] - revise trades.js round 2
 [] - Copyright info
-[] - blur section on/above floads
+[] - blur section on/above floats - just slightly
+[] - Design the mobile view.
 
 
 ---
@@ -15,5 +16,5 @@
 [x] - Mobile view | transition after 1000px width
 [x] - fix perTrade.html, get it working as previous one
 [x] - calculate winrate logic
-
+[x] - perTrade Fixed 1000px
 

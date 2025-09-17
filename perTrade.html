@@ -102,7 +102,7 @@
         }
 
         .get-deals-btn:hover {
-            background-color: #473274; /* A vibrant purple */
+            background-color: #473274;
         }
         
         .get-deals-btn:hover::before {
@@ -114,15 +114,14 @@
             display: none;
             flex-direction: column;
             justify-content: space-between;
-            width: 14px;
-            height: 10px;
+            width: 18px;
+            height: 14px;
             cursor: pointer;
             z-index: 50;
         }
 
         .hamburger-menu span {
             display: block;
-            width: 100%;
             height: 2px;
             background-color: white;
             transition: all 0.3s ease-in-out;
@@ -139,8 +138,39 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
+        /* Mobile nav */
+        #mobile-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 66.66%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 40;
+            padding: 1.5rem;
+        }
+        #mobile-nav.active {
+            transform: translateX(0);
+        }
+        #mobile-nav .nav-link {
+            padding: 1.25rem 0;
+            font-size: 1rem;
+            width: 100%;
+            justify-content: flex-end;
+        }
+        #mobile-nav .nav-link img {
+            width: 1rem;
+            height: 1rem;
+        }
+
         /* Mobile responsive adjustments */
-        @media (max-width: 1023px) {
+        @media (max-width: 1000px) {
             .nav-menu {
                 display: none;
             }
@@ -148,42 +178,6 @@
             .hamburger-menu {
                 display: flex;
             }
-        }
-
-        @media (max-width: 640px) {
-            #mobile-nav {
-                position: fixed;
-                top: 0;
-                right: 0;
-                width: 66.66%; /* Occupy 2/3 of the screen width */
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-end; /* Align to the right */
-                transform: translateX(100%); /* Start off-screen to the right */
-                transition: transform 0.3s ease-in-out;
-                z-index: 40;
-                padding: 1.5rem; /* Add some padding on all sides */
-            }
-
-            #mobile-nav.active {
-                transform: translateX(0); /* Slide into view */
-            }
-
-            #mobile-nav .nav-link {
-                padding: 1.25rem 0; /* Add vertical padding */
-                font-size: 1rem; /* Smaller font size */
-                width: 100%; /* Make links full width of the card */
-                justify-content: flex-end; /* Align text to the right */
-            }
-            
-            #mobile-nav .nav-link img {
-                width: 1rem; /* Smaller icons */
-                height: 1rem;
-            }
-
         }
         
     </style>
@@ -236,7 +230,7 @@
 
     <main class="container mx-auto p-4 lg:p-8 mt-20 px-40">
         <a id="back-link" href="#" class="flex items-center text-gray-400 hover:text-white transition-colors mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             <span class="text-sm font-bold">SEE ALL TRADES FOR THIS MONTH</span>
