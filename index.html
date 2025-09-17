@@ -256,9 +256,16 @@
         // Function to count completed trades (exclude ACTIVE, CANCELLED, UNTRIGGERED)
         function countCompletedTrades(trades) {
             return trades.filter(trade => 
-                trade.status !== 'ACTIVE' && 
+                trade.status !== 'RUNNING' && 
                 trade.status !== 'CANCELLED' && 
                 trade.status !== 'UNTRIGGERED'
+            ).length;
+        }
+
+                // Function to count activated trades (wins and losses only)
+        function countActivatedTrades(trades) {
+            return trades.filter(trade => 
+                trade.status === 'WIN' || trade.status === 'LOSS'
             ).length;
         }
 
@@ -278,7 +285,7 @@
                 <div class="absolute bottom-4 left-4 rounded-xl bg-black/50 backdrop-blur-md text-white text-sm font-semibold py-2 px-4 flex items-center space-x-3">
                     <span class="${totalProfit >= 0 ? 'text-green-400' : 'text-red-400'}">${totalProfit}R</span>
                     <div class="w-[1px] h-4 bg-white/40"></div>
-                    <span>${completedTrades} TRADES</span>
+                    <span>${countActivatedTrades} TRADES</span>
                 </div>
             `;
             
