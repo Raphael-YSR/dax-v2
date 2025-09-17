@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Serve static files from the same directory
 app.use(express.static(path.join(__dirname)));
@@ -22,15 +22,17 @@ app.get('/:month', (req, res) => {
     res.sendFile(path.join(__dirname, 'perMonth.html'));
 });
 
-// Route for a specific trade within a month - FIXED ROUTE
+// Route for a specific trade within a month
 app.get('/:month/:tradeNo', (req, res) => {
     res.sendFile(path.join(__dirname, 'perTrade.html'));
 });
 
-// Start the server
-app.get("/", (req, res) => {
-  res.send("Hello from Express on Vercel!");
-});
+// Only start server if not in Vercel environment
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Server running on http://localhost:${port}`);
+    });
+}
 
-// Export the app as a function for Vercel
+// Export the app for Vercel
 module.exports = app;
