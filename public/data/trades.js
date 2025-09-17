@@ -57,15 +57,22 @@ const monthlyTrades = {
     },
         {
       pair: "CADJPY",
-      profit: "0R",
-      status: "RUNNING",
+      profit: "-1R",
+      status: "LOSS",
       openDate: "SEPTEMBER 17", //"SEPTEMBER 1", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      closedDate: "SEPTEMBER 17", // Use "—" if not applicable
       telegramLinks: [  
         "https://t.me/thedaxbrand/3220",
         "https://t.me/thedaxbrand/3243",
         "https://t.me/thedaxbrand/3249",
         "https://t.me/thedaxbrand/3254",
+        "https://t.me/thedaxbrand/3258",
+        "https://t.me/thedaxbrand/3260",
+        "https://t.me/thedaxbrand/3262",
+        "https://t.me/thedaxbrand/3263",
+        "https://t.me/thedaxbrand/3264", //  
+        "https://t.me/thedaxbrand/3266",
+        "https://t.me/thedaxbrand/3268", 
         ],
     },
         {
@@ -111,6 +118,7 @@ const monthlyTrades = {
       telegramLinks: [
 "https://t.me/thedaxbrand/2937",
 "https://t.me/thedaxbrand/3008",
+"https://t.me/thedaxbrand/3261",
       ],
     },
     {
@@ -195,6 +203,7 @@ const monthlyTrades = {
 "https://t.me/thedaxbrand/3130",
 "https://t.me/thedaxbrand/3177",
 "https://t.me/thedaxbrand/3182",
+"https://t.me/thedaxbrand/3256",
       ],
     },
     {
@@ -845,7 +854,7 @@ const monthlyTrades = {
   ],
   march: [
     {
-      pair: "GBPJPY", // DONE
+      pair: "GBPJPY",
       profit: "2R",
       status: "WIN",
       openDate: "MARCH 4",

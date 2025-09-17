@@ -2,7 +2,8 @@
 [] - revise trades.js round 2
 [] - Copyright info
 [] - blur section on/above floats - just slightly
-[] - Design the mobile view.
+[] - Design the mobile view - the purple blend is too much
+[] - Telegram embed feature just stopped working! WHAT?
 
 
 ---
