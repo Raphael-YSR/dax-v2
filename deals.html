@@ -126,25 +126,29 @@
         display: flex;
       }
 
-      #mobile-nav {
+     #mobile-nav {
         position: fixed;
-        top: 0.75rem;
-        right: 0.75rem;
+        top: 0;              /* stick to the very top */
+        right: 0;            /* stick to the very right */
+        height: auto;        /* or give it a fixed height if you want */
+        max-height: 90vh;    /* prevent it from being too tall */
         width: 220px;
         background-color: rgba(0, 0, 0, 0.95);
-        border-radius: 0.75rem;
+        border-radius: 0.75rem 0 0 0.75rem; /* round left edge */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        transform: translateX(-120%);
+        transform: translateX(120%); /* hidden off-screen to the right */
         transition: transform 0.3s ease-in-out;
         z-index: 40;
         padding: 1rem;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      }
-      #mobile-nav.active {
-        transform: translateX(0);
-      }
+        box-shadow: -8px 0 20px rgba(0,0,0,0.5); /* shadow on left side */
+        }
+
+        #mobile-nav.active {
+        transform: translateX(0); /* slide in */
+        }
+
       #mobile-nav .nav-link {
         padding: 0.75rem 0;
         font-size: 1rem;
