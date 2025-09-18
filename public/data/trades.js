@@ -218,6 +218,7 @@ const monthlyTrades = {
 "https://t.me/thedaxbrand/3287",
       "https://t.me/thedaxbrand/3289", 
       "https://t.me/thedaxbrand/3292",
+      "https://t.me/thedaxbrand/3326",
       ],
     },
     {
@@ -250,7 +251,7 @@ const monthlyTrades = {
     },
     {
       pair: "CADCHF",
-      profit: "-1R", //-0.5
+      profit: "-0.5R",
       status: "LOSS",
       openDate: "AUGUST 19",
       closedDate: "AUGUST 20",
@@ -284,7 +285,7 @@ const monthlyTrades = {
     },
     {
       pair: "EURJPY",
-      profit: "7R",
+      profit: "13R",
       status: "WIN",
       openDate: "AUGUST 12",
       closedDate: "AUGUST 20",
@@ -318,9 +319,9 @@ const monthlyTrades = {
     {
       pair: "EURNZD",
       profit: "0R",//BE
-      status: "LOSS",
-      openDate: "—",
-      closedDate: "—",
+      status: "BREAK EVEN",
+      openDate: "AUGUST 12",
+      closedDate: "AUGUST 14",
       telegramLinks: [
 "https://t.me/thedaxbrand/2658",
 "https://t.me/thedaxbrand/2661",

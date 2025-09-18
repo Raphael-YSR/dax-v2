@@ -7,6 +7,7 @@
     [] - Mobile view transition
     [] - arrangement, better aesthetic
 [] - burger return button and frame new design
+[] - perTrade.html - change fonts size and widget size
 
 
 ---
