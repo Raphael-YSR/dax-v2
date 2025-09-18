@@ -2,9 +2,13 @@
 [] - revise trades.js round 2
 [] - Copyright info
 [] - blur section on/above floats - just slightly
-[] - Design the mobile view - the purple blend is too much
+[] - Design the mobile view - the purple blend is too much - lower transparency
 [] - Telegram embed feature just stopped working! WHAT?
 [] - favicon.ico
+[] - deals page
+    [] - Mobile view transition
+    [] - arrangement, better aesthetic
+[] - burger return button and frame new design
 
 
 ---
