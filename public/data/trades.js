@@ -48,21 +48,23 @@ const monthlyTrades = {
     },
         {
       pair: "NZDUSD",
-      profit: "0R",
-      status: "AWAITING",
-      openDate: "—", //"SEPTEMBER 1", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      profit: "2R",
+      status: "WIN",
+      openDate: "SEPTEMBER 17", //"SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "SEPTEMBER 18", // Use "—" if not applicable
       telegramLinks: [  
         "https://t.me/thedaxbrand/3219",
         "https://t.me/thedaxbrand/3242",
         "https://t.me/thedaxbrand/3272",
         "https://t.me/thedaxbrand/3274",
         "https://t.me/thedaxbrand/3277",
+        "https://t.me/thedaxbrand/3294",
+        "https://t.me/thedaxbrand/3298",
         ],
     },
         {
       pair: "CADJPY",
-      profit: "-1R",
+      profit: "-0.5R",
       status: "LOSS",
       openDate: "SEPTEMBER 17", //"SEPTEMBER 1", // Use "—" if not applicable
       closedDate: "SEPTEMBER 17", // Use "—" if not applicable
@@ -124,6 +126,8 @@ const monthlyTrades = {
 "https://t.me/thedaxbrand/2937",
 "https://t.me/thedaxbrand/3008",
 "https://t.me/thedaxbrand/3261",
+"https://t.me/thedaxbrand/3284",
+"https://t.me/thedaxbrand/3300",
       ],
     },
     {
@@ -246,7 +250,7 @@ const monthlyTrades = {
     },
     {
       pair: "CADCHF",
-      profit: "-1R",
+      profit: "-1R", //-0.5
       status: "LOSS",
       openDate: "AUGUST 19",
       closedDate: "AUGUST 20",
@@ -313,7 +317,7 @@ const monthlyTrades = {
     },
     {
       pair: "EURNZD",
-      profit: "0R",
+      profit: "0R",//BE
       status: "LOSS",
       openDate: "—",
       closedDate: "—",
@@ -348,7 +352,7 @@ const monthlyTrades = {
     {
       pair: "AUDUSD",
       profit: "2R",
-      status: "WIN",
+      status: "WIN", //DATES
       openDate: "—",
       closedDate: "—",
       telegramLinks: [
