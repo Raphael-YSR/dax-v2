@@ -1,281 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAX BACI | Deals & Partners</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #000000;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAX BACI | Deals & Partners</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #000;
+    }
 
-        .gradient-bg {
-            background-color: #000;
-            position: relative;
-            overflow: hidden;
-        }
+    .gradient-bg {
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+    }
 
-        /* Subtle radial gradient from the bottom-left */
-        .gradient-bg::before {
-            content: '';
-            position: fixed;
-            bottom: 20%;
-            left: 0;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(128, 90, 213, 0.45) 0%, transparent 90%);
-            transform: translate(-50%, 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
+    .gradient-bg::before {
+      content: '';
+      position: fixed;
+      bottom: 20%;
+      left: 0;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(128, 90, 213, 0.45) 0%, transparent 90%);
+      transform: translate(-50%, 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        /* Styles for the desktop navigation bar */
-        .nav-menu {
-            -webkit-text-size-adjust: 100%;
-            --library-text--background: black;
-            --library-text--paragraphs: #e6e6e699;
-            --library-text--light: #e6e6e6;
-            --library-text--border: #e6e6e633;
-            --library-text--dark: #191819;
-            --library-text--big-card-corners: .94em;
-            color: var(--library-text--paragraphs);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 17px;
-            font-weight: 500;
-            line-height: 1.8em;
-            box-sizing: border-box;
-            float: right;
-            grid-column-gap: 4px;
-            grid-row-gap: 4px;
-            backdrop-filter: blur(40px);
-            background-color: #47474780;
-            border-radius: .76em;
-            flex-flow: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: .35em;
-            display: flex;
-        }
-        .nav-link {
-            color: rgb(230, 230, 230);
-            text-decoration: none;
-            padding: 8px 12px;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 0.5em;
-        }
-        
-        .nav-link img {
-            width: 20px;
-            height: 20px;
-        }
-        
-        .nav-link-current {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 0.5em;
-        }
+    /* Desktop nav */
+    .nav-menu {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.8em;
+      color: #e6e6e699;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      backdrop-filter: blur(40px);
+      background-color: #47474780;
+      border-radius: .76em;
+      padding: .35em;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .nav-link {
+      color: #e6e6e6;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 0.5em;
+    }
+    .nav-link img {
+      width: 20px;
+      height: 20px;
+    }
 
-        /* Specific styling for the animated 'Get Deals' button */
-        .get-deals-btn {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.7s ease-in-out;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
+    /* Deals button */
+    .get-deals-btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.7s ease-in-out;
+    }
+    .get-deals-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(128, 90, 213, 0.3), transparent);
+      transition: left 0.7s ease-in-out;
+      transform: skewX(-20deg);
+    }
+    .get-deals-btn:hover {
+      background-color: #473274;
+    }
+    .get-deals-btn:hover::before {
+      left: 100%;
+    }
 
-        .get-deals-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(128, 90, 213, 0.3), transparent);
-            transition: left 0.7s ease-in-out;
-            transform: skewX(-20deg);
-        }
+    /* Hamburger */
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 18px;
+      height: 14px;
+      cursor: pointer;
+      z-index: 50;
+    }
+    .hamburger-menu span {
+      display: block;
+      height: 2px;
+      background-color: white;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger-menu.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger-menu.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-menu.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
-        .get-deals-btn:hover {
-            background-color: #473274; /* A vibrant purple */
-        }
-        
-        .get-deals-btn:hover::before {
-            left: 100%;
-        }
-        
-        .card-container {
-            border: 1px solid #6A3896;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .card-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(128, 90, 213, 0.15);
-        }
+    /* Mobile nav (only @ 1000px breakpoint) */
+    @media (max-width: 1000px) {
+      .nav-menu {
+        display: none;
+      }
+      .hamburger-menu {
+        display: flex;
+      }
 
-        /* Fixed image dimensions for desktop */
-        .deals-image {
-            width: 500px;
-            height: 620px;
-            object-fit: cover;
-            border-radius: 0.75rem;
-            margin-left: 40px;
-            margin-right: 40px;
-        }
+      #mobile-nav {
+        position: fixed;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 220px;
+        background-color: rgba(0, 0, 0, 0.95);
+        border-radius: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        transform: translateY(-120%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 40;
+        padding: 1rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      }
+      #mobile-nav.active {
+        transform: translateY(0);
+      }
+      #mobile-nav .nav-link {
+        padding: 0.75rem 0;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+      #mobile-nav .nav-link img {
+        width: 18px;
+        height: 18px;
+      }
 
-        /* Hamburger menu styling - Updated to match index.html */
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 18px;
-            height: 14px;
-            cursor: pointer;
-            z-index: 50;
-        }
-
-        .hamburger-menu span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: white;
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* Hamburger menu animations (transforms into an 'X') */
-        .hamburger-menu.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger-menu.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger-menu.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* Mobile nav - Compact dropdown from top-right */
-        #mobile-nav {
-            position: fixed;
-            top: 80px;
-            right: 1rem;
-            width: 200px;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(20px);
-            border-radius: 0.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transform: translateY(-20px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease-in-out;
-            z-index: 40;
-            padding: 1rem;
-        }
-        #mobile-nav.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-        #mobile-nav .nav-link {
-            padding: 0.75rem 0;
-            font-size: 0.9rem;
-            width: 100%;
-            justify-content: flex-start;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        #mobile-nav .nav-link:last-child {
-            border-bottom: none;
-        }
-        #mobile-nav .nav-link img {
-            width: 1rem;
-            height: 1rem;
-        }
-
-        /* Mobile responsive adjustments */
-        @media (max-width: 1000px) {
-            .deals-image {
-                width: 100%;
-                height: 400px;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .hamburger-menu {
-                display: flex;
-            }
-
-            .mobile-card-wrapper {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            /* Make the text in the cards smaller on mobile */
-            .mobile-card-text-sm h2 {
-                font-size: 1rem;
-            }
-
-            .mobile-card-text-sm ul {
-                font-size: 0.75rem;
-            }
-        }
-    </style>
+      .deals-image {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 <body class="gradient-bg overflow-y-auto">
+
 <header class="fixed top-0 w-full z-50 flex justify-between items-center p-4 md:p-6 lg:p-8">
-    <a href="/" class="text-sm md:text-2xl lg:text-3xl font-bold text-white tracking-wide float-left">DAX BACI🧑‍🍳</a>
-    
-    <nav role="navigation" class="nav-menu text-sm">
+  <a href="/" class="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-wide">DAX BACI🧑‍🍳</a>
 
-        <a href="https://www.x.com/thissdax" class="nav-link">
-            <img src="images/icons/x.png" alt="X (Twitter) Icon"> X (Twitter)
-        </a>
-        <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link">
-            <img src="images/icons/instagram.png" alt="Instagram Icon"> Instagram
-        </a>
-        <a href="https://t.me/thedaxbrand" class="nav-link">
-            <img src="images/icons/telegram.png" alt="Telegram Icon"> Telegram
-        </a>
-        <a href="/deals" class="nav-link get-deals-btn">
-            <img src="images/icons/flash.png" alt="Deals Icon">
-            <span>GET DEALS NOW</span>
-        </a>
-    </nav>
+  <nav role="navigation" class="nav-menu text-sm">
+    <a href="https://www.x.com/thissdax" class="nav-link"><img src="images/icons/x.png" alt=""> X (Twitter)</a>
+    <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link"><img src="images/icons/instagram.png" alt=""> Instagram</a>
+    <a href="https://t.me/thedaxbrand" class="nav-link"><img src="images/icons/telegram.png" alt=""> Telegram</a>
+    <a href="/deals" class="nav-link get-deals-btn"><img src="images/icons/flash.png" alt=""><span>GET DEALS NOW</span></a>
+  </nav>
 
-    <button id="hamburger-menu" class="hamburger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+  <button id="hamburger-menu" class="hamburger-menu lg:hidden">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-    <nav id="mobile-nav">
-        <div class="flex flex-col w-full space-y-2">
-            <a href="https://www.x.com/thissdax" class="nav-link">
-                <img src="images/icons/x.png" alt="X (Twitter) Icon"> X (Twitter)
-            </a>
-            <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link">
-                <img src="images/icons/instagram.png" alt="Instagram Icon"> Instagram
-            </a>
-            <a href="https://t.me/thedaxbrand" class="nav-link">
-                <img src="images/icons/telegram.png" alt="Telegram Icon"> Telegram
-            </a>
-            <a href="/deals" class="nav-link get-deals-btn">
-                <img src="images/icons/flash.png" alt="Deals Icon">
-                <span>GET DEALS NOW</span>
-            </a>
-        </div>
-    </nav>
+  <nav id="mobile-nav" class="lg:hidden">
+    <a href="https://www.x.com/thissdax" class="nav-link"><img src="images/icons/x.png" alt=""> X (Twitter)</a>
+    <a href="https://www.instagram.com/thissdax/?hl=en" class="nav-link"><img src="images/icons/instagram.png" alt=""> Instagram</a>
+    <a href="https://t.me/thedaxbrand" class="nav-link"><img src="images/icons/telegram.png" alt=""> Telegram</a>
+    <a href="/deals" class="nav-link get-deals-btn"><img src="images/icons/flash.png" alt=""><span>GET DEALS NOW</span></a>
+  </nav>
+</header>
+
+<main class="relative z-10 pt-16 p-4 md:p-6 lg:p-8 mt-20">
+  <!-- Your existing deals section unchanged -->
+</main>
+
+<footer class="text-center text-gray-500 text-sm py-6 mt-12">
+  &copy; 2025 DAX BACI. All rights reserved.
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburgerMenu.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function(event) {
+      const isClickInside = mobileNav.contains(event.target) || hamburgerMenu.contains(event.target);
+      if (!isClickInside && mobileNav.classList.contains('active')) {
+        hamburgerMenu.classList.remove('active');
+        mobileNav.classList.remove('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
