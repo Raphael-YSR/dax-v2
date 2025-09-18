@@ -1,10 +1,8 @@
 [] - Dynamic Scroll
 [] - revise trades.js round 2
-[] - Copyright info
 [] - blur section on/above floats - just slightly
 [] - Design the mobile view - the purple blend is too much - lower transparency
 [] - Telegram embed feature just stopped working! WHAT?
-[] - favicon.ico
 [] - deals page
     [] - Mobile view transition
     [] - arrangement, better aesthetic
@@ -23,4 +21,6 @@
 [x] - fix perTrade.html, get it working as previous one
 [x] - calculate winrate logic
 [x] - perTrade Fixed 1000px
+[x] - favicon.ico
+[x] - Copyright info
 
