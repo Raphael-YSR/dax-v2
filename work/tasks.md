@@ -3,9 +3,6 @@
 [] - blur section on/above floats - just slightly
 [] - Design the mobile view - the purple blend is too much - lower transparency
 [] - Telegram embed feature just stopped working! WHAT?
-[] - deals page
-    [] - Mobile view transition
-    [] - arrangement, better aesthetic
 [] - perTrade.html - change fonts size and widget size
 
 
@@ -24,4 +21,6 @@
 [x] - favicon.ico
 [x] - Copyright info
 [x] - burger return button and frame new design
-
+[x] - deals page
+    [x] - Mobile view transition
+    [x] - arrangement, better aesthetic
