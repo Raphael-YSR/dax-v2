@@ -125,6 +125,10 @@
       .hamburger-menu {
         display: flex;
       }
+        .mobile-card-wrapper {
+    max-width: 500px;   /* cards don’t expand beyond image */
+    margin: 0 auto;
+  }
 
 #mobile-nav {
   position: fixed;
@@ -163,15 +167,11 @@
         height: 18px;
       }
 
-      .deals-image {
-        width: 100%;
-        max-width: 350px;
-        height: 430px;
-        object-fit: cover; 
-        object-position: center; 
-        margin: 0 auto;
-        display: block;
-      }
+  .deals-image {
+    width: 100%;
+    max-width: 500px;   /* consistent with cards */
+    margin: 0 auto;
+  }
 
     }
 
@@ -183,8 +183,21 @@
 /* Adjustments for the deals-image on desktop */
 @media (min-width: 1001px) {
   .deals-image {
-    max-width: 80%;
-    height: auto;
+    width: 100%;
+    max-width: 420px;   /* give it more presence */
+    height: 450px;      /* fixed height so crop works */
+    object-fit: cover;  /* crops instead of squishes */
+    object-position: center;
+  }
+
+  .card-container {
+    max-width: 500px;   /* prevent them from being oversized */
+  }
+
+  /* Vertical line centered */
+  .divider-line {
+    align-self: center; /* vertical centering */
+    height: 70%;        /* not full stretch */
   }
 }
 

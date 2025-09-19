@@ -1,7 +1,8 @@
-[] - Dynamic Scroll
+[] - fix deals propotions on mobile
 [] - revise trades.js round 2
+
+[] - Dynamic Scroll
 [] - blur section on/above floats - just slightly
-[] - Design the mobile view - the purple blend is too much - lower transparency
 [] - Telegram embed feature just stopped working! WHAT?
 [] - perTrade.html - change fonts size and widget size
 
@@ -24,3 +25,4 @@
 [x] - deals page
     [x] - Mobile view transition
     [x] - arrangement, better aesthetic
+[x] - Design the mobile view - the purple blend is too much - lower transparency
