@@ -164,14 +164,13 @@
       }
 
       .deals-image {
-        width: 80%;
-        max-width: 350px;   /* your requirement */
-        height: 430px;      /* fixed container height */
-        object-fit: cover;  /* crop instead of squish */
-        object-position: center; /* center the crop */
+        width: 100%;
+        max-width: 350px;
+        height: 430px;
+        object-fit: cover; 
+        object-position: center; 
         margin: 0 auto;
         display: block;
-        
       }
 
     }
@@ -179,6 +178,14 @@
 /* New card styles for desktop */
 .card-container {
   border: 1px solid #805AD5; /* Thin purple border */
+}
+
+/* Adjustments for the deals-image on desktop */
+@media (min-width: 1001px) {
+  .deals-image {
+    max-width: 80%;
+    height: auto;
+  }
 }
 
   </style>
@@ -297,7 +304,7 @@
     </div>
 </main>
 
-<footer class="text-center text-gray-500 text-sm py-4 mt-12">
+<footer class="text-center text-gray-500 text-sm py-6 mt-12">
   &copy; 2025 DAX BACI. All rights reserved.
 </footer>
 
