@@ -5,6 +5,7 @@
 [] - blur section on/above floats - just slightly
 [] - Telegram embed feature just stopped working! WHAT?
 [] - perTrade.html - change fonts size and widget size
+[] - add breakevens to the counted trades
 
 
 ---

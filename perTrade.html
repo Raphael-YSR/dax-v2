@@ -187,6 +187,10 @@
             }
         }
         
+        #telegram-embeds {
+        position: relative;
+        z-index: 50;  /* higher than mobile nav */
+        }
     </style>
 </head>
 <body class="gradient-bg overflow-y-auto">
@@ -292,6 +296,13 @@
                 if (!isClickInside && mobileNav.classList.contains('active')) {
                     hamburgerMenu.classList.remove('active');
                     mobileNav.classList.remove('active');
+                }
+            });
+
+            document.addEventListener('touchstart', function(event) {
+                const isClickInside = mobileNav.contains(event.target) || hamburgerMenu.contains(event.target);
+                if (!isClickInside && mobileNav.classList.contains('active')) {
+                    closeMobileNav();
                 }
             });
 
