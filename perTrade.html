@@ -118,7 +118,7 @@
             width: 18px;
             height: 14px;
             cursor: pointer;
-            z-index: 50;
+            /* z-index is handled by the header */
         }
 
         .hamburger-menu span {
@@ -155,7 +155,7 @@
         align-items: flex-start;               /* keep links left-aligned */
         transform: translateX(120%);           /* hidden off-screen */
         transition: transform 0.3s ease-in-out;
-        z-index: 40;
+        z-index: 40; /* Lower z-index than the header */
         padding: 1rem;
         box-shadow: -8px 0 20px rgba(0,0,0,0.5); /* left shadow */
         overflow-y: auto;                       /* scroll if tall */
@@ -175,7 +175,7 @@
             width: 1rem;
             height: 1rem;
         }
-
+        
         /* Mobile responsive adjustments */
         @media (max-width: 1000px) {
             .nav-menu {
@@ -187,14 +187,24 @@
             }
         }
         
+        /* Adjusted z-index for the embed container */
         #telegram-embeds {
-        position: relative;
-        z-index: 50;  /* higher than mobile nav */
+            position: relative;
+            z-index: 20; 
+        }
+
+        /* Fix for the embed overflow on small screens */
+        .embed-container {
+            width: 100%; 
+            max-width: 40rem; /* Use a relative max-width like max-w-lg or max-w-xl to allow for better scaling on different screens */
+            overflow: hidden;
+            border-radius: 1rem; /* rounded-2xl */
         }
     </style>
 </head>
 <body class="gradient-bg overflow-y-auto">
 
+    <!-- Header with increased z-index to be on top -->
     <header class="fixed top-0 w-full z-50 flex justify-between items-center p-4 md:p-6 lg:p-8">
         <a href="/" class="text-sm md:text-2xl lg:text-3xl font-bold text-white tracking-wide float-left">DAX BACI🧑‍🍳</a>
         
@@ -269,7 +279,7 @@
             </div>
         </div>
 
-        <div id="telegram-embeds" class="flex flex-col items-center gap-6 rounded-2xl p-6">
+        <div id="telegram-embeds" class="flex flex-col items-center gap-6 p-6">
         </div>
 
     </main>
@@ -393,7 +403,8 @@
                         script.setAttribute('data-dark', '1'); 
                         
                         const div = document.createElement('div');
-                        div.className = "w-full max-w-2xl rounded-2xl overflow-hidden shadow-lg p-2";
+                        // Use a class that sets width to full and has a max-width for better responsiveness
+                        div.className = "w-full max-w-2xl overflow-hidden rounded-2xl shadow-lg p-2";
                         div.appendChild(script);
                         embedsContainer.appendChild(div);
                     }
