@@ -163,10 +163,14 @@
 
       .deals-image {
         width: 100%;
-        max-width: 400px;
-        height: 400px;
+        max-width: 350px;   /* your requirement */
+        height: 400px;      /* fixed container height */
+        object-fit: cover;  /* crop instead of squish */
+        object-position: center; /* center the crop */
         margin: 0 auto;
+        display: block;
       }
+
     }
   </style>
 </head>
