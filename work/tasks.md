@@ -6,7 +6,6 @@
 [] - deals page
     [] - Mobile view transition
     [] - arrangement, better aesthetic
-[] - burger return button and frame new design
 [] - perTrade.html - change fonts size and widget size
 
 
@@ -24,4 +23,5 @@
 [x] - perTrade Fixed 1000px
 [x] - favicon.ico
 [x] - Copyright info
+[x] - burger return button and frame new design
 
