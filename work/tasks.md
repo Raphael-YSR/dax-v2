@@ -1,11 +1,9 @@
-[] - fix deals propotions on mobile
 [] - revise trades.js round 2
+[] - add breakevens to the counted trades
 
 [] - Dynamic Scroll
 [] - blur section on/above floats - just slightly
 [] - Telegram embed feature just stopped working! WHAT?
-[] - perTrade.html - change fonts size and widget size
-[] - add breakevens to the counted trades
 
 
 ---
@@ -27,3 +25,5 @@
     [x] - Mobile view transition
     [x] - arrangement, better aesthetic
 [x] - Design the mobile view - the purple blend is too much - lower transparency
+[x] - fix deals propotions on mobile
+[x] - perTrade.html - change fonts size and widget size
