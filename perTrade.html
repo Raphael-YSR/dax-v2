@@ -118,7 +118,6 @@
             width: 18px;
             height: 14px;
             cursor: pointer;
-            /* z-index is handled by the header */
         }
 
         .hamburger-menu span {
@@ -139,37 +138,37 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        /* Mobile nav */
+        /* Mobile nav - Fixed z-index and positioning */
         #mobile-nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: auto;
-        max-height: 90vh;
-        width: 220px;
-        background-color: rgba(0, 0, 0, 0.7);  /* semi-transparent black */
-        backdrop-filter: blur(8px);            /* frosted glass effect */
-        border-radius: 0.75rem 0 0 0.75rem;    /* round left edge */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;               /* keep links left-aligned */
-        transform: translateX(120%);           /* hidden off-screen */
-        transition: transform 0.3s ease-in-out;
-        z-index: 40; /* Lower z-index than the header */
-        padding: 1rem;
-        box-shadow: -8px 0 20px rgba(0,0,0,0.5); /* left shadow */
-        overflow-y: auto;                       /* scroll if tall */
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: auto;
+            max-height: 90vh;
+            width: 220px;
+            background-color: rgba(0, 0, 0, 0.9);  /* More opaque */
+            backdrop-filter: blur(12px);           /* Stronger blur */
+            border-radius: 0.75rem 0 0 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transform: translateX(120%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 9999; /* Much higher z-index */
+            padding: 1rem;
+            box-shadow: -8px 0 20px rgba(0,0,0,0.7);
+            overflow-y: auto;
         }
 
         #mobile-nav.active {
-        transform: translateX(0);
+            transform: translateX(0);
         }
 
         #mobile-nav .nav-link {
-        padding: 0.75rem 0;   /* tighter, like deals.html */
-        font-size: 1rem;
-        width: 100%;
-        justify-content: flex-start;
+            padding: 0.75rem 0;
+            font-size: 1rem;
+            width: 100%;
+            justify-content: flex-start;
         }
         #mobile-nav .nav-link img {
             width: 1rem;
@@ -187,24 +186,64 @@
             }
         }
         
-        /* Adjusted z-index for the embed container */
+        /* Telegram embeds container - Fixed positioning and sizing */
         #telegram-embeds {
             position: relative;
-            z-index: 20; 
+            z-index: 1; /* Lower z-index than mobile nav */
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
         }
 
-        /* Fix for the embed overflow on small screens */
+        /* Embed container improvements */
         .embed-container {
-            width: 100%; 
-            max-width: 40rem; /* Use a relative max-width like max-w-lg or max-w-xl to allow for better scaling on different screens */
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
             overflow: hidden;
-            border-radius: 1rem; /* rounded-2xl */
+            border-radius: 1rem;
+            box-sizing: border-box;
+        }
+
+        /* Force Telegram widget to respect container bounds */
+        .embed-container iframe {
+            max-width: 100% !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Additional mobile fixes */
+        @media (max-width: 768px) {
+            #telegram-embeds {
+                padding: 1rem 0.5rem;
+            }
+            
+            .embed-container {
+                padding: 0;
+                margin: 0;
+            }
+            
+            /* Ensure main container doesn't interfere */
+            main {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100vw;
+            }
+        }
+
+        /* Prevent horizontal scroll */
+        body {
+            overflow-x: hidden;
+        }
+        
+        html {
+            overflow-x: hidden;
         }
     </style>
 </head>
 <body class="gradient-bg overflow-y-auto">
 
-    <!-- Header with increased z-index to be on top -->
+    <!-- Header with proper z-index -->
     <header class="fixed top-0 w-full z-50 flex justify-between items-center p-4 md:p-6 lg:p-8">
         <a href="/" class="text-sm md:text-2xl lg:text-3xl font-bold text-white tracking-wide float-left">DAX BACI🧑‍🍳</a>
         
@@ -224,7 +263,7 @@
             </a>
         </nav>
 
-        <button id="hamburger-menu" class="hamburger-menu lg:hidden">
+        <button id="hamburger-menu" class="hamburger-menu lg:hidden z-50">
             <span></span>
             <span></span>
             <span></span>
@@ -251,7 +290,7 @@
 
     <main class="container mx-auto p-4 lg:p-8 mt-20">
         <a id="back-link" href="/:month" class="flex items-center text-gray-400 hover:text-white transition-colors mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             <span class="text-sm font-bold">SEE ALL TRADES FOR THIS MONTH</span>
@@ -279,7 +318,7 @@
             </div>
         </div>
 
-        <div id="telegram-embeds" class="flex flex-col items-center gap-6 p-6">
+        <div id="telegram-embeds" class="flex flex-col items-center gap-6">
         </div>
 
     </main>
@@ -312,7 +351,8 @@
             document.addEventListener('touchstart', function(event) {
                 const isClickInside = mobileNav.contains(event.target) || hamburgerMenu.contains(event.target);
                 if (!isClickInside && mobileNav.classList.contains('active')) {
-                    closeMobileNav();
+                    hamburgerMenu.classList.remove('active');
+                    mobileNav.classList.remove('active');
                 }
             });
 
@@ -385,26 +425,39 @@
             document.getElementById('trade-open-date').textContent = trade.openDate || '--';
             document.getElementById('trade-closed-date').textContent = trade.closedDate || '--';
 
-            // Generate Telegram embeds
+            // Generate Telegram embeds with better mobile handling
             const embedsContainer = document.getElementById('telegram-embeds');
             if (trade.telegramLinks && trade.telegramLinks.length > 0) {
-                trade.telegramLinks.forEach(link => {
+                trade.telegramLinks.forEach((link, index) => {
                     // Extract the channel and message ID from the URL
                     const parts = link.split('/');
                     const channel = parts[parts.length - 2];
                     const postId = parts[parts.length - 1];
 
                     if (channel && postId) {
+                        const div = document.createElement('div');
+                        div.className = "embed-container w-full max-w-2xl";
+                        div.id = `telegram-embed-${index}`;
+                        
                         const script = document.createElement('script');
                         script.async = true;
                         script.src = "https://telegram.org/js/telegram-widget.js?22";
                         script.setAttribute('data-telegram-post', `${channel}/${postId}`);
                         script.setAttribute('data-width', '100%');
-                        script.setAttribute('data-dark', '1'); 
+                        script.setAttribute('data-dark', '1');
                         
-                        const div = document.createElement('div');
-                        // Use a class that sets width to full and has a max-width for better responsiveness
-                        div.className = "w-full max-w-2xl overflow-hidden rounded-2xl shadow-lg p-2";
+                        // Add load event to handle iframe sizing
+                        script.onload = function() {
+                            setTimeout(() => {
+                                const iframe = div.querySelector('iframe');
+                                if (iframe) {
+                                    iframe.style.maxWidth = '100%';
+                                    iframe.style.width = '100%';
+                                    iframe.style.boxSizing = 'border-box';
+                                }
+                            }, 1000);
+                        };
+                        
                         div.appendChild(script);
                         embedsContainer.appendChild(div);
                     }
