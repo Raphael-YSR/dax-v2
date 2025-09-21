@@ -27,6 +27,11 @@ app.get('/:month/:tradeNo', (req, res) => {
     res.sendFile(path.join(__dirname, 'perTrade.html'));
 });
 
+//Route to BTS
+app.get('/bts', (req, res) => {
+    res.sendFile(path.join(__dirname, 'bts.html'));
+});
+
 // Only start server if not in Vercel environment
 if (process.env.NODE_ENV !== 'production') {
     app.listen(port, () => {

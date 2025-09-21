@@ -83,8 +83,8 @@ const monthlyTrades = {
       pair: "CADJPY",
       profit: "-0.5R",
       status: "LOSS",
-      openDate: "SEPTEMBER 17", //"SEPTEMBER 1", // Use "—" if not applicable
-      closedDate: "SEPTEMBER 17", // Use "—" if not applicable
+      openDate: "SEPTEMBER 17",
+      closedDate: "SEPTEMBER 17",
       telegramLinks: [  
         "https://t.me/thedaxbrand/3220",
         "https://t.me/thedaxbrand/3243",
@@ -103,8 +103,8 @@ const monthlyTrades = {
       pair: "EURGBP",
       profit: "2R",
       status: "WIN",
-      openDate: "SEPTEMBER 15", //"SEPTEMBER 1", // Use "—" if not applicable
-      closedDate: "SEPTEMBER 16", // Use "—" if not applicable
+      openDate: "SEPTEMBER 15",
+      closedDate: "SEPTEMBER 16", 
       telegramLinks: [  
         "https://t.me/thedaxbrand/3173",
         "https://t.me/thedaxbrand/3174",
@@ -323,8 +323,8 @@ const monthlyTrades = {
     },
     {
       pair: "EURNZD",
-      profit: "0R",//BE
-      status: "BREAK EVEN",
+      profit: "0R",
+      status: "BREAKEVEN",
       openDate: "AUGUST 12",
       closedDate: "AUGUST 14",
       telegramLinks: [
@@ -358,7 +358,7 @@ const monthlyTrades = {
     {
       pair: "AUDUSD",
       profit: "-0.2R",
-      status: "LOSS", //DATES
+      status: "LOSS",
       openDate: "SEPTEMBER 5",
       closedDate: "SEPTEMBER 8",
       telegramLinks: [
@@ -496,8 +496,8 @@ const monthlyTrades = {
       pair: "EURCAD",
       profit: "3R",
       status: "WIN",
-      openDate: "JULY 10", // CONFIRM DATES
-      closedDate: "JULY 11",
+      openDate: "JULY 16",
+      closedDate: "JULY 16",
       telegramLinks: [
         "https://t.me/thedaxbrand/2362",
         "https://t.me/thedaxbrand/2372",
