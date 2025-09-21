@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+//Route to BTS
+app.get('/bts', (req, res) => {
+    res.sendFile(path.join(__dirname, 'bts.html'));
+});
+
 // Route for the deals page
 app.get('/deals', (req, res) => {
     res.sendFile(path.join(__dirname, 'deals.html'));
@@ -25,11 +30,6 @@ app.get('/:month', (req, res) => {
 // Route for a specific trade within a month
 app.get('/:month/:tradeNo', (req, res) => {
     res.sendFile(path.join(__dirname, 'perTrade.html'));
-});
-
-//Route to BTS
-app.get('/bts', (req, res) => {
-    res.sendFile(path.join(__dirname, 'bts.html'));
 });
 
 // Only start server if not in Vercel environment
