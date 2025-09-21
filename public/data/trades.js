@@ -18,16 +18,28 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/2925",
         ],
     },
+      * LAST LINK UPDATE: 
       * 
-      * 
-      * Status can be one of: "WIN", "LOSS", "AWAITING", "RUNNING", "CANCELLED", "UNTRIGGERED"
+      * Status can be one of: "WIN", "LOSS", "BREAKEVEN" "AWAITING", "RUNNING", "CANCELLED", "UNTRIGGERED"
      */
+        {
+      pair: "V75",
+      profit: "0R",
+      status: "RUNNING",
+      openDate: "—", 
+      closedDate: "—", 
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3336",
+        "https://t.me/thedaxbrand/3374",
+        // "https://t.me/thedaxbrand/3284",
+        ],
+    },
     {
       pair: "EURCHF",
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", //"SEPTEMBER 1", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—", 
+      closedDate: "—", 
       telegramLinks: [  
         "https://t.me/thedaxbrand/3217",
         "https://t.me/thedaxbrand/3283",
@@ -38,20 +50,25 @@ const monthlyTrades = {
       pair: "GBPCHF",
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", //"SEPTEMBER 1", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—", 
       telegramLinks: [  
         "https://t.me/thedaxbrand/3218",
         "https://t.me/thedaxbrand/3241",
         "https://t.me/thedaxbrand/3280",
+        // ANY MISSING?
+        "https://t.me/thedaxbrand/3334",
+        "https://t.me/thedaxbrand/3338",
+        "https://t.me/thedaxbrand/3341",
+        "https://t.me/thedaxbrand/3345",
         ],
     },
-        {
+    {
       pair: "NZDUSD",
       profit: "2R",
       status: "WIN",
-      openDate: "SEPTEMBER 17", //"SEPTEMBER 1", // Use "—" if not applicable
-      closedDate: "SEPTEMBER 18", // Use "—" if not applicable
+      openDate: "SEPTEMBER 17",
+      closedDate: "SEPTEMBER 18", 
       telegramLinks: [  
         "https://t.me/thedaxbrand/3219",
         "https://t.me/thedaxbrand/3242",
@@ -158,18 +175,6 @@ const monthlyTrades = {
       telegramLinks: [
         "https://t.me/thedaxbrand/3081",
         "https://t.me/thedaxbrand/3084",
-      ],
-    },
-    {
-      pair: "BTCUSD", // COMEBACK
-      profit: "-1R",
-      status: "LOSS",
-      openDate: "SEPTEMBER 9",
-      closedDate: "SEPTEMBER 9",
-      telegramLinks: [
-        "https://t.me/thedaxbrand/3088",
-        "https://t.me/thedaxbrand/3091",
-        "https://t.me/thedaxbrand/3094",
       ],
     },
     {
@@ -352,10 +357,10 @@ const monthlyTrades = {
     },
     {
       pair: "AUDUSD",
-      profit: "2R",
-      status: "WIN", //DATES
-      openDate: "—",
-      closedDate: "—",
+      profit: "-0.2R",
+      status: "LOSS", //DATES
+      openDate: "SEPTEMBER 5",
+      closedDate: "SEPTEMBER 8",
       telegramLinks: [
         "https://t.me/thedaxbrand/2885",
 "https://t.me/thedaxbrand/2896",
@@ -389,6 +394,20 @@ const monthlyTrades = {
   ],
   july: [
     {
+      pair: "NZDUSD",
+      profit: "2R",
+      status: "WIN",
+      openDate: "JULY X", // FIND OPENING DATE
+      closedDate: "JULY 2",
+      telegramLinks: [
+"https://t.me/thedaxbrand/2342",
+"https://t.me/thedaxbrand/2349",
+"https://t.me/thedaxbrand/2352",
+"https://t.me/thedaxbrand/2288",
+"https://t.me/thedaxbrand/2290"
+      ],
+    },
+    {
       pair: "ETHUSD",
       profit: "-1R",
       status: "LOSS",
@@ -398,6 +417,20 @@ const monthlyTrades = {
 "https://t.me/thedaxbrand/2342",
 "https://t.me/thedaxbrand/2349",
 "https://t.me/thedaxbrand/2352",
+      ],
+    },
+        {
+      pair: "XAUUSD",
+      profit: "0R",
+      status: "CANCELLED",
+      openDate: "—",
+      closedDate: "—",
+      telegramLinks: [
+"https://t.me/thedaxbrand/2317",
+"https://t.me/thedaxbrand/2320",
+"https://t.me/thedaxbrand/2321",
+"https://t.me/thedaxbrand/2323",
+"https://t.me/thedaxbrand/2325",
       ],
     },
     {
@@ -432,6 +465,10 @@ const monthlyTrades = {
       openDate: "JULY 23",
       closedDate: "JULY 23",
       telegramLinks: [
+        "https://t.me/thedaxbrand/2330",
+        "https://t.me/thedaxbrand/2332",
+        "https://t.me/thedaxbrand/2333",
+        "https://t.me/thedaxbrand/2335",
 "https://t.me/thedaxbrand/2426",
 "https://t.me/thedaxbrand/2443",
 "https://t.me/thedaxbrand/2445",
@@ -444,23 +481,40 @@ const monthlyTrades = {
       ],
     },
     {
-      pair: "GBPCAD", // COMEBACK
-      profit: "2R",
-      status: "WIN",
+      pair: "NZDCHF",
+      profit: "0R",
+      status: "BREAKEVEN",
       openDate: "JULY 10",
       closedDate: "JULY 11",
       telegramLinks: [
-        "https://t.me/thedaxbrand/2906",
-        "https://t.me/thedaxbrand/2907",
-        "https://t.me/thedaxbrand/2910",
+        "https://t.me/thedaxbrand/2474",
+        "https://t.me/thedaxbrand/2477",
+        "https://t.me/thedaxbrand/2484",
       ],
     },
+    {
+      pair: "EURCAD",
+      profit: "3R",
+      status: "WIN",
+      openDate: "JULY 10", // CONFIRM DATES
+      closedDate: "JULY 11",
+      telegramLinks: [
+        "https://t.me/thedaxbrand/2362",
+        "https://t.me/thedaxbrand/2372",
+        "https://t.me/thedaxbrand/2385",
+        "https://t.me/thedaxbrand/2386",
+        "https://t.me/thedaxbrand/2388",
+        "https://t.me/thedaxbrand/2392",
+        "https://t.me/thedaxbrand/2403",
+        "https://t.me/thedaxbrand/2413",
+      ],
+    }, 
     {
       pair: "BTCUSD",
       profit: "2R",
       status: "WIN",
-      openDate: "JULY / FILLDATE",
-      closedDate: "JULY 11",
+      openDate: "JULY 23",
+      closedDate: "JULY 23",
       telegramLinks: [
 "https://t.me/thedaxbrand/2444",
 "https://t.me/thedaxbrand/2448",
@@ -819,15 +873,16 @@ const monthlyTrades = {
     },
     {
       pair: "BTCUSD", // DONE
-      profit: "3R",
+      profit: "6R",
       status: "WIN",
-      openDate: "//fill",
-      closedDate: "APRIL x",
+      openDate: "MARCH 31",
+      closedDate: "APRIL 2",
       telegramLinks: [
 "https://t.me/thedaxbrand/1590",
 "https://t.me/thedaxbrand/1592",
 "https://t.me/thedaxbrand/1601",
 "https://t.me/thedaxbrand/1606",
+"https://t.me/thedaxbrand/1607",
       ],
     },
     {
@@ -978,13 +1033,14 @@ const monthlyTrades = {
     },
     {
       pair: "NZDCHF",
-      profit: "2R",
+      profit: "3R",
       status: "WIN",
       openDate: "MARCH 31",
       closedDate: "APRIL 2",
       telegramLinks: [
-        "https://t.me/thedaxbrand/2170",
-        "https://t.me/thedaxbrand/2171",
+        "https://t.me/thedaxbrand/1584",
+        "https://t.me/thedaxbrand/1589",
+        "https://t.me/thedaxbrand/1682"
       ],
     },
     {
