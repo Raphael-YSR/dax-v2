@@ -18,20 +18,22 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/2925",
         ],
     },
-      * LAST LINK UPDATE: 
+      * LAST LINK UPDATE: https://t.me/thedaxbrand/3394?single
       * 
       * Status can be one of: "WIN", "LOSS", "BREAKEVEN" "AWAITING", "RUNNING", "CANCELLED", "UNTRIGGERED"
      */
         {
       pair: "V75",
-      profit: "0R",
-      status: "RUNNING",
-      openDate: "—", 
-      closedDate: "—", 
+      profit: "3.5R",
+      status: "WIN",
+      openDate: "SEPTEMBER 18", 
+      closedDate: "SEPTEMBER 22", 
       telegramLinks: [  
         "https://t.me/thedaxbrand/3336",
         "https://t.me/thedaxbrand/3374",
-        // "https://t.me/thedaxbrand/3284",
+        "https://t.me/thedaxbrand/3385",
+        "https://t.me/thedaxbrand/3394",
+        "",
         ],
     },
     {
@@ -49,8 +51,8 @@ const monthlyTrades = {
         {
       pair: "GBPCHF",
       profit: "0R",
-      status: "AWAITING",
-      openDate: "—",
+      status: "RUNNING",
+      openDate: "SEPTEMBER 19",
       closedDate: "—", 
       telegramLinks: [  
         "https://t.me/thedaxbrand/3218",
@@ -61,6 +63,11 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/3338",
         "https://t.me/thedaxbrand/3341",
         "https://t.me/thedaxbrand/3345",
+        "https://t.me/thedaxbrand/3376",
+        "https://t.me/thedaxbrand/3378",
+        "https://t.me/thedaxbrand/3379",
+        "https://t.me/thedaxbrand/3380",
+        "",
         ],
     },
     {
