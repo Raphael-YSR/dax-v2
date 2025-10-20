@@ -2,9 +2,6 @@
 // We use it as database from which the perMonth.html and perTrade.html files pull data.
 
 // data\trades.js is the path from root folder
-
-const monthlyTrades = {
-  september: [
     /**
       * Example trade object
     {
@@ -22,6 +19,151 @@ const monthlyTrades = {
       * 
       * Status can be one of: "WIN", "LOSS", "BREAKEVEN" "AWAITING", "RUNNING", "CANCELLED", "UNTRIGGERED"
      */
+
+const monthlyTrades = {
+    october: [
+    {
+      pair: "GBPJPY",
+      profit: "2R",
+      status: "WIN",
+      openDate: "MARCH 4",
+      closedDate: "MARCH 5",
+      telegramLinks: [
+        "https://t.me/thedaxbrand/1155",
+        "https://t.me/thedaxbrand/1358",
+        "https://t.me/thedaxbrand/1363",
+      ],
+    },
+    {
+      pair: "CADJPY", // DONE
+      profit: "0R",
+      status: "CANCELLED",
+      openDate: "—",
+      closedDate: "—",
+      telegramLinks: [
+"https://t.me/thedaxbrand/1400",
+"https://t.me/thedaxbrand/1449",
+"https://t.me/thedaxbrand/1450",
+      ],
+    },
+    {
+      pair: "GBPJPY", // DONE
+      profit: "2R",
+      status: "WIN",
+      openDate: "MARCH 11",
+      closedDate: "MARCH 11",
+      telegramLinks: [
+"https://t.me/thedaxbrand/1401",
+"https://t.me/thedaxbrand/1407",
+"https://t.me/thedaxbrand/1410",
+"https://t.me/thedaxbrand/1411",
+"https://t.me/thedaxbrand/1413",
+"https://t.me/thedaxbrand/1421",
+"https://t.me/thedaxbrand/1429",
+      ],
+    },
+    {
+      pair: "USDJPY", // DONE
+      profit: "0R",
+      status: "CANCELLED",
+      openDate: "—",
+      closedDate: "—",
+      telegramLinks: [
+"https://t.me/thedaxbrand/1402",
+"https://t.me/thedaxbrand/1448",
+      ],
+    },
+    {
+      pair: "USOIL", // DONE
+      profit: "0R",
+      status: "CANCELLED",
+      openDate: "—",
+      closedDate: "—",
+      telegramLinks: [
+"https://t.me/thedaxbrand/1463",
+"https://t.me/thedaxbrand/1472",
+"https://t.me/thedaxbrand/1494",
+"https://t.me/thedaxbrand/1500",
+"https://t.me/thedaxbrand/1538",
+"https://t.me/thedaxbrand/1547",
+"https://t.me/thedaxbrand/1582",
+      ],
+    },
+    {
+      pair: "NAS100", // DONE
+      profit: "0R",
+      status: "UNTRIGGERED",
+      openDate: "—",
+      closedDate: "—",
+      telegramLinks: [
+"https://t.me/thedaxbrand/1495",
+"https://t.me/thedaxbrand/1502",
+"https://t.me/thedaxbrand/1537",
+"https://t.me/thedaxbrand/1542",
+"https://t.me/thedaxbrand/1546",
+"https://t.me/thedaxbrand/1581",
+      ],
+    },
+    {
+      pair: "EURNZD",
+      profit: "2R",
+      status: "WIN",
+      openDate: "MARCH 26",
+      closedDate: "MARCH 26",
+      telegramLinks: [
+"https://t.me/thedaxbrand/1557",
+"https://t.me/thedaxbrand/1566",
+"https://t.me/thedaxbrand/1567",
+"https://t.me/thedaxbrand/1573",
+"https://t.me/thedaxbrand/1575",
+      ],
+    },
+    {
+      pair: "GBPNZD",
+      profit: "-1R",
+      status: "LOSS",
+      openDate: "MARCH 28",
+      closedDate: "MARCH 31",
+      telegramLinks: [
+"https://t.me/thedaxbrand/1569",
+"https://t.me/thedaxbrand/1572",
+"https://t.me/thedaxbrand/1578",
+      ],
+    },
+    {
+      pair: "NZDCHF",
+      profit: "3R",
+      status: "WIN",
+      openDate: "MARCH 31",
+      closedDate: "APRIL 2",
+      telegramLinks: [
+        "https://t.me/thedaxbrand/1584",
+        "https://t.me/thedaxbrand/1589",
+        "https://t.me/thedaxbrand/1682"
+      ],
+    },
+    {
+      pair: "NZDUSD", // DONE
+      profit: "2.33R",
+      status: "WIN",
+      openDate: "MARCH 3",
+      closedDate: "MARCH 6",
+      telegramLinks: [
+        "https://t.me/thedaxbrand/1333",
+
+"https://t.me/thedaxbrand/1354", 
+
+"https://t.me/thedaxbrand/1359 ", 
+
+"https://t.me/thedaxbrand/1366" , 
+
+"https://t.me/thedaxbrand/1384 ", 
+
+"https://t.me/thedaxbrand/1390 "
+    ],
+}],
+  september: [
+
         {
       pair: "V75",
       profit: "3.5R",
