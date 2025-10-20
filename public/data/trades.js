@@ -6,11 +6,11 @@
     /**
       * Example trade object
     {
-      pair: "$FILL",
-      profit: "$FILL",
+      pair: "—",
+      profit: "—",
       status: "WIN",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [  
         "",
         "",
@@ -36,8 +36,8 @@ const monthlyTrades = {
       pair: "NZDCAD",
       profit: "0R",
       status: "AWAITING",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [
         "https://t.me/thedaxbrand/3803",
       ],
@@ -46,8 +46,8 @@ const monthlyTrades = {
       pair: "GBPCAD",
       profit: "0R",
       status: "AWAITING",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [
         "https://t.me/thedaxbrand/3804",
       ],
@@ -57,8 +57,8 @@ const monthlyTrades = {
       pair: "AUDNZD",
       profit: "0R",
       status: "AWAITING",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [
         "https://t.me/thedaxbrand/3788",
         "https://t.me/thedaxbrand/3793",
@@ -69,8 +69,8 @@ const monthlyTrades = {
       pair: "CHFJPY",
       profit: "-1R",
       status: "LOSS",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [
         "https://t.me/thedaxbrand/3730",
         "https://t.me/thedaxbrand/3731",
@@ -83,8 +83,8 @@ const monthlyTrades = {
       pair: "BTCUSD",
       profit: "2R",
       status: "WIN",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [
         "https://t.me/thedaxbrand/3735",
         "https://t.me/thedaxbrand/3736",
@@ -108,9 +108,9 @@ const monthlyTrades = {
     {
       pair: "AUDCHF",
       profit: "0R",
-      status: "CONFIRM",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      status: "AWAITING",
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [
         "https://t.me/thedaxbrand/3585",
         "https://t.me/thedaxbrand/3606",
@@ -134,9 +134,9 @@ const monthlyTrades = {
     {
       pair: "EURCAD",
       profit: "0R",
-      status: "CONFIRM",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      status: "AWAITING",
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [  
         "https://t.me/thedaxbrand/3568",
         "https://t.me/thedaxbrand/3606",
@@ -176,9 +176,9 @@ const monthlyTrades = {
     {
       pair: "USDCHF",
       profit: "0R",
-      status: "CONFIRM",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      status: "AWAITING",
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [  
         "https://t.me/thedaxbrand/3526",
         "https://t.me/thedaxbrand/3539",
@@ -195,9 +195,9 @@ const monthlyTrades = {
         {
       pair: "CADJPY",
       profit: "0R",
-      status: "CONFIRM",
-      openDate: "$FILL", // Use "—" if not applicable
-      closedDate: "$FILL", // Use "—" if not applicable
+      status: "AWAITING",
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [  
         "https://t.me/thedaxbrand/3530",
         "https://t.me/thedaxbrand/3531",
@@ -238,7 +238,7 @@ const monthlyTrades = {
     },    {
       pair: "GBPCAD",
       profit: "1R",
-      status: "CONFIRM",
+      status: "AWAITING",
       openDate: "-", // Use "—" if not applicable
       closedDate: "-", // Use "—" if not applicable
       telegramLinks: [  

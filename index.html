@@ -280,7 +280,8 @@
             trade.status !== 'RUNNING' && 
             trade.status !== 'CANCELLED' && 
             trade.status !== 'UNTRIGGERED' &&  // Added 'ACTIVE' if your data uses it
-            trade.status !== 'ACTIVE'
+            trade.status !== 'ACTIVE' &&
+            trade.status !== 'CONFIRM'
         ).length;
     }
 
