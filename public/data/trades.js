@@ -3,25 +3,316 @@
 
 // data\trades.js is the path from root folder
 
-const monthlyTrades = {
-  september: [
     /**
       * Example trade object
     {
-      pair: "GBPCHF",
+      pair: "$FILL",
+      profit: "$FILL",
+      status: "WIN",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [  
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ],
+    },
+      * LAST LINK UPDATE: https://t.me/thedaxbrand/3806
+      * 
+      * Status can be one of: "WIN", "LOSS", "BREAKEVEN" "AWAITING", "RUNNING", "CANCELLED", "UNTRIGGERED"
+     */
+
+const monthlyTrades = {
+  // BENCHMARK LINKS
+  bencmarkLinks: [
+  "https://t.me/thedaxbrand/3560"
+  ],
+
+  october: [
+    {
+      pair: "NZDCAD",
+      profit: "$FILL",
+      status: "$FILL",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [
+        "https://t.me/thedaxbrand/3803",
+      ],
+    },
+    {
+      pair: "GBPCAD",
+      profit: "$FILL",
+      status: "$FILL",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [
+        "https://t.me/thedaxbrand/3804",
+      ],
+    },
+    //
+    {
+      pair: "AUDNZD",
+      profit: "$FILL",
+      status: "$FILL",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [
+        "https://t.me/thedaxbrand/3788",
+        "https://t.me/thedaxbrand/3793",
+        "https://t.me/thedaxbrand/3806",
+      ],
+    },
+    {
+      pair: "CHFJPY",
+      profit: "$FILL",
+      status: "$FILL",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [
+        "https://t.me/thedaxbrand/3730",
+        "https://t.me/thedaxbrand/3731",
+        "https://t.me/thedaxbrand/3779",
+        "",
+        "",
+      ],
+    },
+    {
+      pair: "BTCUSD",
+      profit: "$FILL",
+      status: "$FILL",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [
+        "https://t.me/thedaxbrand/3735",
+        "https://t.me/thedaxbrand/3736",
+        "https://t.me/thedaxbrand/3737",
+        "https://t.me/thedaxbrand/3738",
+        "https://t.me/thedaxbrand/3738",
+        "https://t.me/thedaxbrand/3740",
+        "https://t.me/thedaxbrand/3741",
+        "https://t.me/thedaxbrand/3742",
+        "https://t.me/thedaxbrand/3744",
+        "https://t.me/thedaxbrand/3746",
+        "https://t.me/thedaxbrand/3747",
+        "https://t.me/thedaxbrand/3748",
+        "https://t.me/thedaxbrand/3749",
+        "https://t.me/thedaxbrand/3758",
+        "https://t.me/thedaxbrand/3760",
+        
+      ],
+    },
+
+    {
+      pair: "AUDCHF",
+      profit: "$FILL",
+      status: "WIN",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [
+        "https://t.me/thedaxbrand/3585",
+        "https://t.me/thedaxbrand/3606",
+        "https://t.me/thedaxbrand/3616",
+        "https://t.me/thedaxbrand/3680",
+        "https://t.me/thedaxbrand/3684",
+        "https://t.me/thedaxbrand/3703",
+        "https://t.me/thedaxbrand/3704",
+        "https://t.me/thedaxbrand/3705",
+        "https://t.me/thedaxbrand/3706",
+        "https://t.me/thedaxbrand/3707",
+        "https://t.me/thedaxbrand/3715",
+        "https://t.me/thedaxbrand/3729",
+        "https://t.me/thedaxbrand/3779",
+        "",
+        "",
+
+      ],
+
+    },
+    {
+      pair: "EURCAD",
+      profit: "$FILL",
+      status: "WIN",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3568",
+        "https://t.me/thedaxbrand/3606",
+        "https://t.me/thedaxbrand/3615",
+        "https://t.me/thedaxbrand/3681",
+        "https://t.me/thedaxbrand/3708",
+        "https://t.me/thedaxbrand/3726",
+        "https://t.me/thedaxbrand/3727",
+        "https://t.me/thedaxbrand/3728",
+        "https://t.me/thedaxbrand/3732",
+        "https://t.me/thedaxbrand/3776",
+        "https://t.me/thedaxbrand/3780",
+        "https://t.me/thedaxbrand/3790",
+        "https://t.me/thedaxbrand/3792",
+        "https://t.me/thedaxbrand/3796",
+        ],
+    },
+        {
+      pair: "CADCHF",
+      profit: "0R",
+      status: "CANCELLED",
+      openDate: "-L", // Use "—" if not applicable
+      closedDate: "-", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3567",
+        "https://t.me/thedaxbrand/3582",
+        "https://t.me/thedaxbrand/3597",
+        "https://t.me/thedaxbrand/3605",
+        "https://t.me/thedaxbrand/3609",
+        "https://t.me/thedaxbrand/3612",
+        "",
+        "",
+        "",
+        ],
+    },
+
+    {
+      pair: "USDCHF",
+      profit: "$FILL",
+      status: "$FILL",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3526",
+        "https://t.me/thedaxbrand/3539",
+        "https://t.me/thedaxbrand/3541",
+        "https://t.me/thedaxbrand/3542",
+        "https://t.me/thedaxbrand/3556",
+        "https://t.me/thedaxbrand/3559",
+        "https://t.me/thedaxbrand/3565",
+        "https://t.me/thedaxbrand/3566",
+        "",
+
+        ],
+    },
+        {
+      pair: "CADJPY",
+      profit: "$FILL",
+      status: "$FILL",
+      openDate: "$FILL", // Use "—" if not applicable
+      closedDate: "$FILL", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3530",
+        "https://t.me/thedaxbrand/3531",
+        "https://t.me/thedaxbrand/3532",
+        "https://t.me/thedaxbrand/3555",
+        "https://t.me/thedaxbrand/3557",
+        "",
+        "",
+        "",
+        ],
+    },
+  ],
+  
+
+  
+  september: [
+
+            //BENCHMARK LINKS
+        "https://t.me/thedaxbrand/3413",
+        "https://t.me/thedaxbrand/3417",
+        "https://t.me/thedaxbrand/3419",
+
+        {
+      pair: "EURCHF",
+      profit: "0R",
+      status: "CANCELLED",
+      openDate: "SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "SEPTEMBER 2", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3493",
+        "https://t.me/thedaxbrand/3494",
+        "https://t.me/thedaxbrand/3495",
+        "https://t.me/thedaxbrand/3528",
+        "https://t.me/thedaxbrand/3529",
+        "https://t.me/thedaxbrand/3577",
+
+        ],
+    },    {
+      pair: "GBPCAD",
+      profit: "-R",
+      status: "WIN",
+      openDate: "-", // Use "—" if not applicable
+      closedDate: "-", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3436",
+        "https://t.me/thedaxbrand/3447",
+        "https://t.me/thedaxbrand/3448",
+        "https://t.me/thedaxbrand/3449",
+        "https://t.me/thedaxbrand/3450",
+        "https://t.me/thedaxbrand/3451",
+        "https://t.me/thedaxbrand/3455",
+        "https://t.me/thedaxbrand/3501",
+        "https://t.me/thedaxbrand/3547",
+        "https://t.me/thedaxbrand/3548",
+        "https://t.me/thedaxbrand/3571",
+        "https://t.me/thedaxbrand/3573",
+        "https://t.me/thedaxbrand/3576",
+        "https://t.me/thedaxbrand/3578",
+        "https://t.me/thedaxbrand/3579",
+        "https://t.me/thedaxbrand/3581",
+        "https://t.me/thedaxbrand/3587",
+        "https://t.me/thedaxbrand/3588",
+        "https://t.me/thedaxbrand/3591",
+        "https://t.me/thedaxbrand/3592",
+        "https://t.me/thedaxbrand/3593",
+        "https://t.me/thedaxbrand/3620",
+        "https://t.me/thedaxbrand/3622",
+        "https://t.me/thedaxbrand/3625",
+        "https://t.me/thedaxbrand/3627",
+        "https://t.me/thedaxbrand/3628",
+        "https://t.me/thedaxbrand/3629",
+        "https://t.me/thedaxbrand/3630",
+        "https://t.me/thedaxbrand/3631",
+        "https://t.me/thedaxbrand/3632",
+        "https://t.me/thedaxbrand/3635",
+        "https://t.me/thedaxbrand/3637",
+        "https://t.me/thedaxbrand/3648",
+        "https://t.me/thedaxbrand/3665",
+        "https://t.me/thedaxbrand/3674",
+        "https://t.me/thedaxbrand/3679",
+        "https://t.me/thedaxbrand/3692",
+        "https://t.me/thedaxbrand/3693",
+
+
+
+        ],
+    },    {
+      pair: "AUDJPY",
       profit: "3.5R",
       status: "WIN",
       openDate: "SEPTEMBER 1", // Use "—" if not applicable
       closedDate: "SEPTEMBER 2", // Use "—" if not applicable
       telegramLinks: [  
-        "https://t.me/thedaxbrand/2910",
-        "https://t.me/thedaxbrand/2925",
+        "https://t.me/thedaxbrand/3435",
+        // "https://t.me/thedaxbrand/2925",
         ],
     },
-      * LAST LINK UPDATE: https://t.me/thedaxbrand/3394?single
-      * 
-      * Status can be one of: "WIN", "LOSS", "BREAKEVEN" "AWAITING", "RUNNING", "CANCELLED", "UNTRIGGERED"
-     */
+    //
+        {
+      pair: "BTCUSD",
+      profit: "0R",
+      status: "UNTRIGGERED",
+      openDate: "-", // Use "—" if not applicable
+      closedDate: "-", // Use "—" if not applicable
+      telegramLinks: [  
+        "https://t.me/thedaxbrand/3410",
+        "https://t.me/thedaxbrand/3414",
+        "https://t.me/thedaxbrand/3421",
+        "https://t.me/thedaxbrand/3425",
+        "https://t.me/thedaxbrand/3427",
+        "https://t.me/thedaxbrand/3431",
+        "",
+
+      ],
+    },
         {
       pair: "V75",
       profit: "3.5R",
@@ -50,11 +341,13 @@ const monthlyTrades = {
     },
         {
       pair: "GBPCHF",
-      profit: "0R",
-      status: "RUNNING",
+      profit: "1R",
+      status: "WIN",
       openDate: "SEPTEMBER 19",
-      closedDate: "—", 
+      closedDate: "SEPTEMBER 25", 
       telegramLinks: [  
+
+        // NORMAL LINKS
         "https://t.me/thedaxbrand/3218",
         "https://t.me/thedaxbrand/3241",
         "https://t.me/thedaxbrand/3280",
@@ -67,7 +360,15 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/3378",
         "https://t.me/thedaxbrand/3379",
         "https://t.me/thedaxbrand/3380",
-        "",
+        "https://t.me/thedaxbrand/3401",
+        "https://t.me/thedaxbrand/3407",
+        "https://t.me/thedaxbrand/3412",
+        "https://t.me/thedaxbrand/3440",
+        "https://t.me/thedaxbrand/3502",
+        "https://t.me/thedaxbrand/3503",
+        "https://t.me/thedaxbrand/3505",
+        "https://t.me/thedaxbrand/3514",
+
         ],
     },
     {
@@ -514,6 +815,7 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/2392",
         "https://t.me/thedaxbrand/2403",
         "https://t.me/thedaxbrand/2413",
+        ""
       ],
     }, 
     {
