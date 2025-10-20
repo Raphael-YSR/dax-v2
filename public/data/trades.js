@@ -26,16 +26,16 @@
      */
 
 const monthlyTrades = {
-  // BENCHMARK LINKS
+/* BENCHMARK LINKS
   bencmarkLinks: [
   "https://t.me/thedaxbrand/3560"
   ],
-
+*/
   october: [
     {
       pair: "NZDCAD",
-      profit: "$FILL",
-      status: "$FILL",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -44,8 +44,8 @@ const monthlyTrades = {
     },
     {
       pair: "GBPCAD",
-      profit: "$FILL",
-      status: "$FILL",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -55,8 +55,8 @@ const monthlyTrades = {
     //
     {
       pair: "AUDNZD",
-      profit: "$FILL",
-      status: "$FILL",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -67,8 +67,8 @@ const monthlyTrades = {
     },
     {
       pair: "CHFJPY",
-      profit: "$FILL",
-      status: "$FILL",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -81,8 +81,8 @@ const monthlyTrades = {
     },
     {
       pair: "BTCUSD",
-      profit: "$FILL",
-      status: "$FILL",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -107,8 +107,8 @@ const monthlyTrades = {
 
     {
       pair: "AUDCHF",
-      profit: "$FILL",
-      status: "WIN",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -133,8 +133,8 @@ const monthlyTrades = {
     },
     {
       pair: "EURCAD",
-      profit: "$FILL",
-      status: "WIN",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [  
@@ -175,8 +175,8 @@ const monthlyTrades = {
 
     {
       pair: "USDCHF",
-      profit: "$FILL",
-      status: "$FILL",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [  
@@ -194,8 +194,8 @@ const monthlyTrades = {
     },
         {
       pair: "CADJPY",
-      profit: "$FILL",
-      status: "$FILL",
+      profit: "0R",
+      status: "CONFIRM",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [  
@@ -215,11 +215,11 @@ const monthlyTrades = {
   
   september: [
 
-            //BENCHMARK LINKS
+/*BENCHMARK LINKS
         "https://t.me/thedaxbrand/3413",
         "https://t.me/thedaxbrand/3417",
         "https://t.me/thedaxbrand/3419",
-
+*/
         {
       pair: "EURCHF",
       profit: "0R",
@@ -237,8 +237,8 @@ const monthlyTrades = {
         ],
     },    {
       pair: "GBPCAD",
-      profit: "-R",
-      status: "WIN",
+      profit: "1R",
+      status: "CONFIRM",
       openDate: "-", // Use "—" if not applicable
       closedDate: "-", // Use "—" if not applicable
       telegramLinks: [  
