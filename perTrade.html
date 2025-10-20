@@ -1,3 +1,4 @@
+<DOCUMENT filename="perTrade.html">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -239,6 +240,43 @@
         html {
             overflow-x: hidden;
         }
+
+        /* Subtle liquid glass fade effect for content under header */
+        .header-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px; /* Approximate max header height (lg:p-8 ~ 128px with content; adjust if needed */
+            z-index: 40; /* Between content (z-1 default) and header (z-50) */
+            pointer-events: none; /* Allows interaction with content below */
+            background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.4) 0%, /* Darker fade at top */
+                rgba(0, 0, 0, 0.2) 30%, /* Subtle mid-fade */
+                transparent 100% /* Clear at bottom */
+            );
+            backdrop-filter: blur(1px) saturate(1.1); /* Very subtle blur and slight saturation boost for "liquid glass" feel; low blur to keep it unobtrusive */
+            -webkit-backdrop-filter: blur(1px) saturate(1.1); /* Safari support */
+        }
+
+        /* Responsive height adjustments for overlay to match header padding */
+        @media (max-width: 767px) {
+            .header-overlay {
+                height: 80px; /* Matches p-4 ~ 64px + content */
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .header-overlay {
+                height: 100px; /* Matches md:p-6 ~ 96px + content */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .header-overlay {
+                height: 120px; /* Matches lg:p-8 ~ 128px + content */
+            }
+        }
     </style>
 </head>
 <body class="gradient-bg overflow-y-auto">
@@ -294,6 +332,9 @@
             </div>
         </nav>
     </header>
+
+    <!-- Subtle liquid glass overlay for fading content under header -->
+    <div class="header-overlay"></div>
 
     <main class="container mx-auto p-4 lg:p-8 mt-20">
         <a id="back-link" href="/:month" 
@@ -485,4 +526,4 @@
         });
     </script>
 </body>
-</html>
+</html></DOCUMENT>
