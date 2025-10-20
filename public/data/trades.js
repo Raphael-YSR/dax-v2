@@ -2,75 +2,62 @@
 // We use it as database from which the perMonth.html and perTrade.html files pull data.
 
 // data\trades.js is the path from root folder
-
     /**
       * Example trade object
     {
-      pair: "—",
-      profit: "—",
+      pair: "GBPCHF",
+      profit: "3.5R",
       status: "WIN",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "SEPTEMBER 1", // Use "—" if not applicable
+      closedDate: "SEPTEMBER 2", // Use "—" if not applicable
       telegramLinks: [  
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+        "https://t.me/thedaxbrand/2910",
+        "https://t.me/thedaxbrand/2925",
         ],
     },
-      * LAST LINK UPDATE: https://t.me/thedaxbrand/3806
+      * LAST LINK UPDATE: https://t.me/thedaxbrand/3394?single
       * 
       * Status can be one of: "WIN", "LOSS", "BREAKEVEN" "AWAITING", "RUNNING", "CANCELLED", "UNTRIGGERED"
      */
 
 const monthlyTrades = {
-/* BENCHMARK LINKS
-  bencmarkLinks: [
-  "https://t.me/thedaxbrand/3560"
-  ],
-*/
-  october: [
+    october: [
     {
       pair: "NZDCAD",
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—",
       telegramLinks: [
         "https://t.me/thedaxbrand/3803",
       ],
     },
     {
-      pair: "GBPCAD",
+      pair: "GBPCAD", 
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—",
       telegramLinks: [
         "https://t.me/thedaxbrand/3804",
       ],
     },
-    //
     {
-      pair: "AUDNZD",
+      pair: "AUDNZD", // DONE
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—",
       telegramLinks: [
-        "https://t.me/thedaxbrand/3788",
-        "https://t.me/thedaxbrand/3793",
-        "https://t.me/thedaxbrand/3806",
+        "https://t.me/thedaxbrand/3804",
       ],
     },
     {
-      pair: "CHFJPY",
+      pair: "CHFJPY", 
       profit: "-1R",
       status: "LOSS",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—",
       telegramLinks: [
         "https://t.me/thedaxbrand/3730",
         "https://t.me/thedaxbrand/3731",
@@ -83,8 +70,8 @@ const monthlyTrades = {
       pair: "BTCUSD",
       profit: "2R",
       status: "WIN",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—",
       telegramLinks: [
         "https://t.me/thedaxbrand/3735",
         "https://t.me/thedaxbrand/3736",
@@ -101,16 +88,15 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/3749",
         "https://t.me/thedaxbrand/3758",
         "https://t.me/thedaxbrand/3760",
-        
       ],
     },
-
     {
-      pair: "AUDCHF",
+      pair: "AUDCHF", // DONE
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—",
+
       telegramLinks: [
         "https://t.me/thedaxbrand/3585",
         "https://t.me/thedaxbrand/3606",
@@ -129,14 +115,13 @@ const monthlyTrades = {
         "",
 
       ],
-
     },
     {
       pair: "EURCAD",
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—",
       telegramLinks: [  
         "https://t.me/thedaxbrand/3568",
         "https://t.me/thedaxbrand/3606",
@@ -154,12 +139,12 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/3796",
         ],
     },
-        {
+    {
       pair: "CADCHF",
       profit: "0R",
-      status: "CANCELLED",
-      openDate: "-L", // Use "—" if not applicable
-      closedDate: "-", // Use "—" if not applicable
+      status: "AWAITING",
+      openDate: "MARCH 28",
+      closedDate: "MARCH 31",
       telegramLinks: [  
         "https://t.me/thedaxbrand/3567",
         "https://t.me/thedaxbrand/3582",
@@ -167,18 +152,14 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/3605",
         "https://t.me/thedaxbrand/3609",
         "https://t.me/thedaxbrand/3612",
-        "",
-        "",
-        "",
-        ],
+      ],
     },
-
     {
       pair: "USDCHF",
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "MARCH 31",
+      closedDate: "APRIL 2",
       telegramLinks: [  
         "https://t.me/thedaxbrand/3526",
         "https://t.me/thedaxbrand/3539",
@@ -188,31 +169,26 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/3559",
         "https://t.me/thedaxbrand/3565",
         "https://t.me/thedaxbrand/3566",
-        "",
-
-        ],
+      ],
     },
-        {
-      pair: "CADJPY",
+    {
+      pair: "CADJPY", // DONE
       profit: "0R",
       status: "AWAITING",
-      openDate: "—", // Use "—" if not applicable
-      closedDate: "—", // Use "—" if not applicable
+      openDate: "—",
+      closedDate: "—",
+
       telegramLinks: [  
         "https://t.me/thedaxbrand/3530",
         "https://t.me/thedaxbrand/3531",
         "https://t.me/thedaxbrand/3532",
         "https://t.me/thedaxbrand/3555",
         "https://t.me/thedaxbrand/3557",
-        "",
-        "",
-        "",
-        ],
+      ],
     },
-  ],
-  
+],
 
-  
+
   september: [
 
 /*BENCHMARK LINKS
@@ -224,8 +200,8 @@ const monthlyTrades = {
       pair: "EURCHF",
       profit: "0R",
       status: "CANCELLED",
-      openDate: "SEPTEMBER 1", // Use "—" if not applicable
-      closedDate: "SEPTEMBER 2", // Use "—" if not applicable
+      openDate: "—", // Use "—" if not applicable
+      closedDate: "—", // Use "—" if not applicable
       telegramLinks: [  
         "https://t.me/thedaxbrand/3493",
         "https://t.me/thedaxbrand/3494",
@@ -341,13 +317,11 @@ const monthlyTrades = {
     },
         {
       pair: "GBPCHF",
-      profit: "1R",
-      status: "WIN",
+      profit: "0R",
+      status: "RUNNING",
       openDate: "SEPTEMBER 19",
-      closedDate: "SEPTEMBER 25", 
+      closedDate: "—", 
       telegramLinks: [  
-
-        // NORMAL LINKS
         "https://t.me/thedaxbrand/3218",
         "https://t.me/thedaxbrand/3241",
         "https://t.me/thedaxbrand/3280",
@@ -360,15 +334,7 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/3378",
         "https://t.me/thedaxbrand/3379",
         "https://t.me/thedaxbrand/3380",
-        "https://t.me/thedaxbrand/3401",
-        "https://t.me/thedaxbrand/3407",
-        "https://t.me/thedaxbrand/3412",
-        "https://t.me/thedaxbrand/3440",
-        "https://t.me/thedaxbrand/3502",
-        "https://t.me/thedaxbrand/3503",
-        "https://t.me/thedaxbrand/3505",
-        "https://t.me/thedaxbrand/3514",
-
+        "",
         ],
     },
     {
@@ -815,7 +781,6 @@ const monthlyTrades = {
         "https://t.me/thedaxbrand/2392",
         "https://t.me/thedaxbrand/2403",
         "https://t.me/thedaxbrand/2413",
-        ""
       ],
     }, 
     {
