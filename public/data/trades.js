@@ -35,7 +35,7 @@ const monthlyTrades = {
     {
       pair: "NZDCAD",
       profit: "0R",
-      status: "CONFIRM",
+      status: "AWAITING",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -45,7 +45,7 @@ const monthlyTrades = {
     {
       pair: "GBPCAD",
       profit: "0R",
-      status: "CONFIRM",
+      status: "AWAITING",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -56,7 +56,7 @@ const monthlyTrades = {
     {
       pair: "AUDNZD",
       profit: "0R",
-      status: "CONFIRM",
+      status: "AWAITING",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -67,8 +67,8 @@ const monthlyTrades = {
     },
     {
       pair: "CHFJPY",
-      profit: "0R",
-      status: "CONFIRM",
+      profit: "-1R",
+      status: "LOSS",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [
@@ -81,8 +81,8 @@ const monthlyTrades = {
     },
     {
       pair: "BTCUSD",
-      profit: "0R",
-      status: "CONFIRM",
+      profit: "2R",
+      status: "WIN",
       openDate: "$FILL", // Use "—" if not applicable
       closedDate: "$FILL", // Use "—" if not applicable
       telegramLinks: [

@@ -248,95 +248,119 @@
 <footer class="text-center text-gray-500 text-sm py-6 mt-12">
   &copy; 2025 DAX BACI. All rights reserved.
 </footer>
-
-    <script src="/data/trades.js"></script>
     
-    <script>
+<script src="/data/trades.js"></script>
+    
+<script>
+    // Function to calculate total profit for a month (UPDATED: handles numbers/strings)
+    function calculateTotalProfit(trades) {
+        const totalProfit = trades.reduce((total, trade) => {
+            if (trade.profit === '--' || trade.profit === undefined || trade.profit === null) return total;
+            
+            let profitValue;
+            if (typeof trade.profit === 'string') {
+                profitValue = parseFloat(trade.profit.replace('R', '').replace(/[^\d.-]/g, '')); // Strips extra junk
+            } else if (typeof trade.profit === 'number') {
+                profitValue = trade.profit;
+            } else {
+                return total; // Skip invalid
+            }
+            
+            if (isNaN(profitValue)) return total; // Skip NaN
+            
+            return total + profitValue;
+        }, 0);
+        return totalProfit.toFixed(2);
+    }
 
+    // Function to count completed trades (exclude ACTIVE, CANCELLED, UNTRIGGERED) - UPDATED comment & robustness
+    function countCompletedTrades(trades) {
+        return trades.filter(trade => 
+            trade && trade.status &&  // Guard against undefined trade/status
+            trade.status !== 'RUNNING' && 
+            trade.status !== 'CANCELLED' && 
+            trade.status !== 'UNTRIGGERED' &&  // Added 'ACTIVE' if your data uses it
+            trade.status !== 'ACTIVE'
+        ).length;
+    }
+
+    // Function to count activated trades (wins and losses only)
+    function countActivatedTrades(trades) {
+        return trades.filter(trade => 
+            trade && trade.status && 
+            (trade.status === 'WIN' || trade.status === 'LOSS')
+        ).length;
+    }
+
+    // Function to create a month card (UNCHANGED, but now safer)
+    function createMonthCard(monthName, monthData) {
+        const totalProfit = calculateTotalProfit(monthData);
+        const activatedTrades = countActivatedTrades(monthData); 
         
-        // Function to calculate total profit for a month
-        function calculateTotalProfit(trades) {
-            const totalProfit = trades.reduce((total, trade) => {
-                if (trade.profit === '--' || trade.profit === undefined) return total;
-                const profitValue = parseFloat(trade.profit.replace('R', ''));
-                return total + profitValue;
-            }, 0);
-            return totalProfit.toFixed(2);
-        }
+        const card = document.createElement('a');
+        card.href = `/${monthName}`;
+        card.className = 'relative w-full aspect-[16/9] card-hover cursor-pointer block';
+        
+        card.innerHTML = `
+            <img src="/images/${monthName}.png" alt="${monthName.charAt(0).toUpperCase() + monthName.slice(1)} trade" class="w-full h-full object-cover rounded-lg">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute top-4 left-4 text-white text-xl md:text-2xl font-semibold">${monthName.toUpperCase()}</div>
+            <div class="absolute bottom-4 left-4 rounded-xl bg-black/50 backdrop-blur-md text-white text-sm font-semibold py-2 px-4 flex items-center space-x-3">
+                <span class="${totalProfit >= 0 ? 'text-green-400' : 'text-red-400'}">${totalProfit}R</span>
+                <div class="w-[1px] h-4 bg-white/40"></div>
+                <span>${activatedTrades} TRADES</span>
+            </div>
+        `;
+        
+        return card;
+    }
 
-        // Function to count completed trades (exclude ACTIVE, CANCELLED, UNTRIGGERED)
-        function countCompletedTrades(trades) {
-            return trades.filter(trade => 
-                trade.status !== 'RUNNING' && 
-                trade.status !== 'CANCELLED' && 
-                trade.status !== 'UNTRIGGERED'
-            ).length;
-        }
-
-                // Function to count activated trades (wins and losses only)
-        function countActivatedTrades(trades) {
-            return trades.filter(trade => 
-                trade.status === 'WIN' || trade.status === 'LOSS'
-            ).length;
-        }
-
-        // Function to create a month card
-        function createMonthCard(monthName, monthData) {
-            const totalProfit = calculateTotalProfit(monthData);
-            const completedTrades = countCompletedTrades(monthData);
-            const activatedTrades = countActivatedTrades(monthData); 
-            
-            const card = document.createElement('a');
-            card.href = `/${monthName}`;
-            card.className = 'relative w-full aspect-[16/9] card-hover cursor-pointer block';
-            
-            card.innerHTML = `
-                <img src="/images/${monthName}.png" alt="${monthName.charAt(0).toUpperCase() + monthName.slice(1)} trade" class="w-full h-full object-cover rounded-lg">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                <div class="absolute top-4 left-4 text-white text-xl md:text-2xl font-semibold">${monthName.toUpperCase()}</div>
-                <div class="absolute bottom-4 left-4 rounded-xl bg-black/50 backdrop-blur-md text-white text-sm font-semibold py-2 px-4 flex items-center space-x-3">
-                    <span class="${totalProfit >= 0 ? 'text-green-400' : 'text-red-400'}">${totalProfit}R</span>
-                    <div class="w-[1px] h-4 bg-white/40"></div>
-                    <span>${activatedTrades} TRADES</span>
-                </div>
-            `;
-            
-            return card;
-        }
-
-        // Generate month cards dynamically
-        function generateMonthCards() {
-            const container = document.getElementById('month-cards-container');
-            
+    // Generate month cards dynamically (UPDATED: with error handling)
+    function generateMonthCards() {
+        const container = document.getElementById('month-cards-container');
+        if (!container) return; // Guard
+        
+        try {
             // Clear existing content
             container.innerHTML = '';
             
             // Get all available months from monthlyTrades and sort them by most recent first
+            if (!monthlyTrades || typeof monthlyTrades !== 'object') {
+                console.error('monthlyTrades not loaded or invalid');
+                return;
+            }
+            
             const months = Object.keys(monthlyTrades);
             const monthOrder = ['october', 'september', 'august', 'july', 'june', 'may', 'april', 'march'];
             
-            // Sort months according to our desired order
+            // Sort months according to our desired order (handles missing months gracefully)
             const sortedMonths = months.sort((a, b) => {
-                const aIndex = monthOrder.indexOf(a);
-                const bIndex = monthOrder.indexOf(b);
-                return aIndex - bIndex;            });
+                const aIndex = monthOrder.indexOf(a.toLowerCase()); // Case-insensitive
+                const bIndex = monthOrder.indexOf(b.toLowerCase());
+                return (aIndex === -1 ? Infinity : aIndex) - (bIndex === -1 ? Infinity : bIndex);
+            });
             
             // Create cards for each month
             sortedMonths.forEach(month => {
                 const monthData = monthlyTrades[month];
-                if (monthData && monthData.length > 0) {
-                    const card = createMonthCard(month, monthData);
+                if (monthData && Array.isArray(monthData) && monthData.length > 0) {
+                    const card = createMonthCard(month.toLowerCase(), monthData); // Normalize key
                     container.appendChild(card);
                 }
             });
+        } catch (error) {
+            console.error('Error generating month cards:', error);
+            container.innerHTML = '<p class="text-white text-center col-span-full">Error loading trades. Check console for details.</p>';
         }
+    }
 
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            generateMonthCards();
-            const hamburger = document.getElementById('hamburger-menu');
-            const mobileNav = document.getElementById('mobile-nav');
+    // Initialize the page (UNCHANGED)
+    document.addEventListener('DOMContentLoaded', function() {
+        generateMonthCards();
+        const hamburger = document.getElementById('hamburger-menu');
+        const mobileNav = document.getElementById('mobile-nav');
 
+        if (hamburger && mobileNav) {
             hamburger.addEventListener('click', function() {
                 this.classList.toggle('active');
                 mobileNav.classList.toggle('active');
@@ -350,7 +374,9 @@
                     mobileNav.classList.remove('active');
                 }
             });
-        });
-    </script>
+        }
+    });
+</script>
+
 </body>
 </html>
