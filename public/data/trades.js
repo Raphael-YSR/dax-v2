@@ -92,8 +92,8 @@ const monthlyTrades = {
     },
     {
       pair: "AUDCHF", // DONE
-      profit: "-1R",
-      status: "LOSS",
+      profit: "0R",
+      status: "CANCELLED",
       openDate: "OCTOBER 10",
       closedDate: "OCTOBER 15",
 
@@ -118,25 +118,22 @@ const monthlyTrades = {
     },
     {
       pair: "EURAUD",
-      profit: "-1R",
+      profit: "-0.5R",
       status: "LOSS",
       openDate: "—",
       closedDate: "—",
       telegramLinks: [  
-        "https://t.me/thedaxbrand/3568",
-        "https://t.me/thedaxbrand/3606",
-        "https://t.me/thedaxbrand/3615",
-        "https://t.me/thedaxbrand/3681",
-        "https://t.me/thedaxbrand/3708",
-        "https://t.me/thedaxbrand/3726",
-        "https://t.me/thedaxbrand/3727",
-        "https://t.me/thedaxbrand/3728",
-        "https://t.me/thedaxbrand/3732",
-        "https://t.me/thedaxbrand/3776",
-        "https://t.me/thedaxbrand/3780",
-        "https://t.me/thedaxbrand/3790",
-        "https://t.me/thedaxbrand/3792",
-        "https://t.me/thedaxbrand/3796",
+        "https://t.me/thedaxbrand/3568",  // EA 
+        "https://t.me/thedaxbrand/3606",  // EA
+        "https://t.me/thedaxbrand/3615",  // EA
+        "https://t.me/thedaxbrand/3681",  // EA
+        "https://t.me/thedaxbrand/3708",  // EA
+        "https://t.me/thedaxbrand/3726",  // EA
+        "https://t.me/thedaxbrand/3728",  // EA
+        "https://t.me/thedaxbrand/3780",  // EA
+        "https://t.me/thedaxbrand/3790",  // EA
+        "https://t.me/thedaxbrand/3792",  // EA
+        "https://t.me/thedaxbrand/3796",  // EA
         ],
     },
         {
@@ -146,20 +143,11 @@ const monthlyTrades = {
       openDate: "—",
       closedDate: "—",
       telegramLinks: [  
-        "https://t.me/thedaxbrand/3568",
-        "https://t.me/thedaxbrand/3606",
-        "https://t.me/thedaxbrand/3615",
-        "https://t.me/thedaxbrand/3681",
-        "https://t.me/thedaxbrand/3708",
-        "https://t.me/thedaxbrand/3726",
-        "https://t.me/thedaxbrand/3727",
-        "https://t.me/thedaxbrand/3728",
-        "https://t.me/thedaxbrand/3732",
-        "https://t.me/thedaxbrand/3776",
-        "https://t.me/thedaxbrand/3780",
-        "https://t.me/thedaxbrand/3790",
-        "https://t.me/thedaxbrand/3792",
-        "https://t.me/thedaxbrand/3796",
+
+        "https://t.me/thedaxbrand/3727",  // EC
+        "https://t.me/thedaxbrand/3732",  // EC
+        "https://t.me/thedaxbrand/3776",  // EC
+
         ],
     },
     {
